@@ -1,0 +1,2 @@
+# Vibecode
+Vibecode cli projects
