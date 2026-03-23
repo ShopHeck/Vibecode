@@ -1,0 +1,257 @@
+[
+  {
+    "key": "group_listing_details",
+    "title": "Listing Details",
+    "fields": [
+      {
+        "key": "field_listing_overall_rating",
+        "label": "Overall Rating",
+        "name": "_listing_overall_rating",
+        "type": "number",
+        "instructions": "Score from 1.0 to 5.0",
+        "min": 1, "max": 5, "step": 0.1,
+        "required": 1,
+        "wrapper": { "width": "25" }
+      },
+      {
+        "key": "field_listing_price_range",
+        "label": "Price Range",
+        "name": "_listing_price_range",
+        "type": "select",
+        "instructions": "General price indicator",
+        "choices": {
+          "$": "$",
+          "$$": "$$",
+          "$$$": "$$$",
+          "$$$$": "$$$$"
+        },
+        "allow_null": 1,
+        "wrapper": { "width": "25" }
+      },
+      {
+        "key": "field_listing_price_from",
+        "label": "Price From",
+        "name": "_listing_price_from",
+        "type": "text",
+        "instructions": "e.g. From $129/night, From $25/person",
+        "wrapper": { "width": "25" }
+      },
+      {
+        "key": "field_listing_badge",
+        "label": "Sponsored Badge",
+        "name": "_listing_sponsored_label",
+        "type": "text",
+        "instructions": "Badge shown on card (e.g. Sponsored, Editor's Pick, Featured)",
+        "wrapper": { "width": "25" }
+      },
+      {
+        "key": "field_listing_featured",
+        "label": "Featured Listing",
+        "name": "_listing_featured",
+        "type": "true_false",
+        "instructions": "Pin to top of category archive and show on homepage featured section",
+        "ui": 1,
+        "wrapper": { "width": "25" }
+      },
+      {
+        "key": "field_listing_affiliate_url",
+        "label": "Affiliate / Booking URL",
+        "name": "_listing_affiliate_url",
+        "type": "url",
+        "instructions": "Cloaked link via ThirstyAffiliates (e.g. /go/listing-name/) or direct booking URL",
+        "wrapper": { "width": "50" }
+      },
+      {
+        "key": "field_listing_website",
+        "label": "Website",
+        "name": "_listing_website",
+        "type": "url",
+        "instructions": "Business website (displayed in details table)",
+        "wrapper": { "width": "50" }
+      },
+      {
+        "key": "field_listing_address",
+        "label": "Address",
+        "name": "_listing_address",
+        "type": "text",
+        "instructions": "Full street address (e.g. 123 King St W, Toronto, ON M5X 1A1)",
+        "wrapper": { "width": "50" }
+      },
+      {
+        "key": "field_listing_phone",
+        "label": "Phone Number",
+        "name": "_listing_phone",
+        "type": "text",
+        "instructions": "e.g. (416) 555-1234",
+        "wrapper": { "width": "25" }
+      },
+      {
+        "key": "field_listing_hours",
+        "label": "Hours",
+        "name": "_listing_hours",
+        "type": "textarea",
+        "instructions": "One line per day (e.g. Mon–Fri: 11am–10pm)",
+        "rows": 4,
+        "wrapper": { "width": "50" }
+      }
+    ],
+    "location": [
+      [{ "param": "post_type", "operator": "==", "value": "restaurant" }],
+      [{ "param": "post_type", "operator": "==", "value": "travel" }],
+      [{ "param": "post_type", "operator": "==", "value": "entertainment" }],
+      [{ "param": "post_type", "operator": "==", "value": "service" }],
+      [{ "param": "post_type", "operator": "==", "value": "shopping" }]
+    ],
+    "position": "normal",
+    "menu_order": 0
+  },
+  {
+    "key": "group_listing_scores",
+    "title": "Score Breakdown",
+    "fields": [
+      {
+        "key": "field_listing_score_quality",
+        "label": "Quality",
+        "name": "_listing_score_quality",
+        "type": "number",
+        "min": 1, "max": 5, "step": 0.1,
+        "wrapper": { "width": "33" }
+      },
+      {
+        "key": "field_listing_score_value",
+        "label": "Value",
+        "name": "_listing_score_value",
+        "type": "number",
+        "min": 1, "max": 5, "step": 0.1,
+        "wrapper": { "width": "33" }
+      },
+      {
+        "key": "field_listing_score_experience",
+        "label": "Experience",
+        "name": "_listing_score_experience",
+        "type": "number",
+        "min": 1, "max": 5, "step": 0.1,
+        "wrapper": { "width": "33" }
+      }
+    ],
+    "location": [
+      [{ "param": "post_type", "operator": "==", "value": "restaurant" }],
+      [{ "param": "post_type", "operator": "==", "value": "travel" }],
+      [{ "param": "post_type", "operator": "==", "value": "entertainment" }],
+      [{ "param": "post_type", "operator": "==", "value": "service" }],
+      [{ "param": "post_type", "operator": "==", "value": "shopping" }]
+    ],
+    "position": "normal",
+    "menu_order": 1
+  },
+  {
+    "key": "group_listing_editorial",
+    "title": "Pros & Cons",
+    "fields": [
+      {
+        "key": "field_listing_pros",
+        "label": "What We Love",
+        "name": "_listing_pros",
+        "type": "textarea",
+        "instructions": "One item per line",
+        "rows": 4,
+        "wrapper": { "width": "50" }
+      },
+      {
+        "key": "field_listing_cons",
+        "label": "Keep in Mind",
+        "name": "_listing_cons",
+        "type": "textarea",
+        "instructions": "One item per line",
+        "rows": 4,
+        "wrapper": { "width": "50" }
+      }
+    ],
+    "location": [
+      [{ "param": "post_type", "operator": "==", "value": "restaurant" }],
+      [{ "param": "post_type", "operator": "==", "value": "travel" }],
+      [{ "param": "post_type", "operator": "==", "value": "entertainment" }],
+      [{ "param": "post_type", "operator": "==", "value": "service" }],
+      [{ "param": "post_type", "operator": "==", "value": "shopping" }]
+    ],
+    "position": "normal",
+    "menu_order": 2
+  },
+  {
+    "key": "group_bestof_config",
+    "title": "Best-Of Page Configuration",
+    "fields": [
+      {
+        "key": "field_bestof_hero_title",
+        "label": "Hero Title",
+        "name": "_bestof_hero_title",
+        "type": "text",
+        "instructions": "Override the page title in the hero (e.g. Best Online Casinos in Ontario 2026)",
+        "wrapper": { "width": "50" }
+      },
+      {
+        "key": "field_bestof_hero_subtitle",
+        "label": "Hero Subtitle",
+        "name": "_bestof_hero_subtitle",
+        "type": "text",
+        "wrapper": { "width": "50" }
+      },
+      {
+        "key": "field_bestof_post_type",
+        "label": "Post Type to List",
+        "name": "_bestof_post_type",
+        "type": "select",
+        "choices": {
+          "casino": "Casino",
+          "restaurant": "Restaurant",
+          "travel": "Travel",
+          "entertainment": "Entertainment",
+          "service": "Service",
+          "shopping": "Shopping"
+        },
+        "default_value": "casino",
+        "wrapper": { "width": "25" }
+      },
+      {
+        "key": "field_bestof_limit",
+        "label": "Number of Listings",
+        "name": "_bestof_limit",
+        "type": "number",
+        "default_value": 10,
+        "min": 3,
+        "max": 25,
+        "wrapper": { "width": "25" }
+      },
+      {
+        "key": "field_bestof_taxonomy",
+        "label": "Filter Taxonomy (optional)",
+        "name": "_bestof_taxonomy",
+        "type": "text",
+        "instructions": "e.g. casino_feature, listing_region — leave blank for no filter",
+        "wrapper": { "width": "25" }
+      },
+      {
+        "key": "field_bestof_term_slug",
+        "label": "Filter Term Slug (optional)",
+        "name": "_bestof_term_slug",
+        "type": "text",
+        "instructions": "e.g. live-dealer, toronto",
+        "wrapper": { "width": "25" }
+      },
+      {
+        "key": "field_bestof_intro",
+        "label": "Intro Text",
+        "name": "_bestof_intro",
+        "type": "wysiwyg",
+        "instructions": "Short editorial intro shown above listings (2-3 sentences)",
+        "media_upload": 0,
+        "toolbar": "basic"
+      }
+    ],
+    "location": [
+      [{ "param": "page_template", "operator": "==", "value": "page-bestof.php" }]
+    ],
+    "position": "normal",
+    "menu_order": 0
+  }
+]

@@ -82,6 +82,37 @@ function ontariosbest_register_post_types() {
 		'menu_icon'   => 'dashicons-hammer',
 		'show_in_rest' => true,
 	) );
+
+	// Restaurant Listings
+	register_post_type( 'restaurant', array(
+		'labels'      => array(
+			'name'          => 'Restaurants',
+			'singular_name' => 'Restaurant',
+			'add_new_item'  => 'Add New Restaurant',
+			'edit_item'     => 'Edit Restaurant',
+		),
+		'public'      => true,
+		'has_archive' => true,
+		'rewrite'     => array( 'slug' => 'restaurants' ),
+		'supports'    => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
+		'menu_icon'   => 'dashicons-food',
+		'show_in_rest' => true,
+	) );
+
+	// Shopping Listings (Phase 2)
+	register_post_type( 'shopping', array(
+		'labels'      => array(
+			'name'          => 'Shopping',
+			'singular_name' => 'Shopping Listing',
+			'add_new_item'  => 'Add New Shopping Listing',
+		),
+		'public'      => true,
+		'has_archive' => true,
+		'rewrite'     => array( 'slug' => 'shopping' ),
+		'supports'    => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
+		'menu_icon'   => 'dashicons-cart',
+		'show_in_rest' => true,
+	) );
 }
 
 // -------------------------------------------------------
@@ -122,6 +153,30 @@ function ontariosbest_register_taxonomies() {
 		'hierarchical' => true,
 		'show_in_rest' => true,
 	) );
+
+	// Restaurant Cuisine
+	register_taxonomy( 'restaurant_cuisine', 'restaurant', array(
+		'label'        => 'Cuisine',
+		'rewrite'      => array( 'slug' => 'cuisine' ),
+		'hierarchical' => false,
+		'show_in_rest' => true,
+	) );
+
+	// Service Category
+	register_taxonomy( 'service_category', 'service', array(
+		'label'        => 'Service Category',
+		'rewrite'      => array( 'slug' => 'service-category' ),
+		'hierarchical' => true,
+		'show_in_rest' => true,
+	) );
+
+	// Shared region taxonomy across all non-casino post types
+	register_taxonomy( 'listing_region', array( 'restaurant', 'travel', 'entertainment', 'service', 'shopping' ), array(
+		'label'        => 'Region',
+		'rewrite'      => array( 'slug' => 'region' ),
+		'hierarchical' => true,
+		'show_in_rest' => true,
+	) );
 }
 
 // -------------------------------------------------------
@@ -147,7 +202,7 @@ function ontariosbest_rg_notice() {
 
 add_filter( 'the_content', 'ontariosbest_affiliate_disclosure' );
 function ontariosbest_affiliate_disclosure( $content ) {
-	if ( is_singular( array( 'casino', 'travel', 'entertainment', 'service' ) ) || is_singular( 'post' ) ) {
+	if ( is_singular( array( 'casino', 'travel', 'entertainment', 'service', 'restaurant', 'shopping' ) ) || is_singular( 'post' ) ) {
 		$disclosure = '<p class="affiliate-disclosure" style="background:#f5f5f5;border-left:4px solid #e8a020;padding:10px 14px;font-size:13px;margin-bottom:20px;">';
 		$disclosure .= '<strong>Disclosure:</strong> OntariosBest.com may earn a commission when you click links on this page. This helps us keep the site free. We only recommend services we have reviewed.';
 		$disclosure .= '</p>';
@@ -233,6 +288,99 @@ function ontariosbest_casino_schema() {
 	);
 
 	echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n";
+}
+
+// -------------------------------------------------------
+// Generic listing meta helper
+// -------------------------------------------------------
+
+/**
+ * Get post meta for any listing post type
+ */
+function ob_listing_meta( $key, $post_id = null ) {
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+	return get_post_meta( $post_id, $key, true );
+}
+
+// -------------------------------------------------------
+// LocalBusiness Schema for non-casino listings
+// -------------------------------------------------------
+
+add_action( 'wp_head', 'ontariosbest_listing_schema' );
+function ontariosbest_listing_schema() {
+	$listing_types = array( 'restaurant', 'travel', 'entertainment', 'service', 'shopping' );
+	if ( ! is_singular( $listing_types ) ) {
+		return;
+	}
+
+	$post_id     = get_the_ID();
+	$name        = get_the_title();
+	$description = get_the_excerpt();
+	$url         = get_permalink();
+	$rating      = ob_listing_meta( '_listing_overall_rating' );
+	$address     = ob_listing_meta( '_listing_address' );
+	$phone       = ob_listing_meta( '_listing_phone' );
+	$website     = ob_listing_meta( '_listing_website' );
+
+	$schema = array(
+		'@context'    => 'https://schema.org',
+		'@type'       => 'LocalBusiness',
+		'name'        => $name,
+		'description' => $description,
+		'url'         => $url,
+	);
+
+	if ( $address ) {
+		$schema['address'] = array(
+			'@type'           => 'PostalAddress',
+			'streetAddress'   => $address,
+			'addressRegion'   => 'ON',
+			'addressCountry'  => 'CA',
+		);
+	}
+	if ( $phone ) {
+		$schema['telephone'] = $phone;
+	}
+	if ( $website ) {
+		$schema['sameAs'] = $website;
+	}
+	if ( $rating ) {
+		$schema['aggregateRating'] = array(
+			'@type'       => 'AggregateRating',
+			'ratingValue' => $rating,
+			'bestRating'  => '5',
+			'worstRating' => '1',
+			'ratingCount' => '1',
+		);
+	}
+
+	echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n";
+}
+
+// -------------------------------------------------------
+// Sponsored/Featured listing helpers
+// -------------------------------------------------------
+
+/**
+ * Returns true if a listing is marked as featured (pinned to top)
+ */
+function ob_is_featured( $post_id = null ) {
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+	return (bool) get_post_meta( $post_id, '_listing_featured', true );
+}
+
+/**
+ * Returns the sponsorship badge label or false
+ */
+function ob_sponsored_badge( $post_id = null ) {
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+	return get_post_meta( $post_id, '_listing_sponsored_label', true );
 }
 
 // -------------------------------------------------------
