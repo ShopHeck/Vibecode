@@ -1,0 +1,386 @@
+/*
+Theme Name:   OntariosBest
+Theme URI:    https://ontariosbest.com
+Description:  OntariosBest child theme based on Astra
+Author:       OntariosBest
+Template:     astra
+Version:      1.0.0
+Text Domain:  ontariosbest
+*/
+
+/* -------------------------------------------------------
+   Brand Colors
+   Primary:    #e8a020  (Ontario gold/amber)
+   Dark:       #1a1a2e  (Deep navy)
+   Accent:     #c0392b  (Red — casino/action)
+   Light bg:   #f9f9f9
+   Text:       #2d2d2d
+------------------------------------------------------- */
+
+:root {
+	--ob-primary:    #e8a020;
+	--ob-primary-dk: #c8880a;
+	--ob-dark:       #1a1a2e;
+	--ob-accent:     #c0392b;
+	--ob-light:      #f9f9f9;
+	--ob-text:       #2d2d2d;
+	--ob-border:     #e0e0e0;
+	--ob-radius:     8px;
+}
+
+/* -------------------------------------------------------
+   Global
+------------------------------------------------------- */
+
+body {
+	color: var(--ob-text);
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+a {
+	color: var(--ob-primary);
+}
+
+a:hover {
+	color: var(--ob-primary-dk);
+}
+
+/* -------------------------------------------------------
+   Buttons
+------------------------------------------------------- */
+
+.ob-btn,
+.ob-btn-primary {
+	display: inline-block;
+	background: var(--ob-primary);
+	color: #fff !important;
+	padding: 12px 28px;
+	border-radius: var(--ob-radius);
+	font-weight: 700;
+	font-size: 15px;
+	text-decoration: none;
+	transition: background 0.2s ease;
+	border: none;
+	cursor: pointer;
+}
+
+.ob-btn:hover,
+.ob-btn-primary:hover {
+	background: var(--ob-primary-dk);
+	color: #fff !important;
+}
+
+.ob-btn-outline {
+	display: inline-block;
+	background: transparent;
+	color: var(--ob-primary) !important;
+	padding: 11px 27px;
+	border-radius: var(--ob-radius);
+	font-weight: 700;
+	font-size: 15px;
+	text-decoration: none;
+	border: 2px solid var(--ob-primary);
+	transition: all 0.2s ease;
+}
+
+.ob-btn-outline:hover {
+	background: var(--ob-primary);
+	color: #fff !important;
+}
+
+/* -------------------------------------------------------
+   Casino Listing Card
+------------------------------------------------------- */
+
+.ob-casino-card {
+	background: #fff;
+	border: 1px solid var(--ob-border);
+	border-radius: var(--ob-radius);
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	margin-bottom: 16px;
+	transition: box-shadow 0.2s ease;
+}
+
+.ob-casino-card:hover {
+	box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.ob-casino-card__rank {
+	font-size: 22px;
+	font-weight: 900;
+	color: var(--ob-primary);
+	min-width: 36px;
+	text-align: center;
+}
+
+.ob-casino-card__logo {
+	width: 100px;
+	flex-shrink: 0;
+}
+
+.ob-casino-card__logo img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 4px;
+}
+
+.ob-casino-card__info {
+	flex: 1;
+}
+
+.ob-casino-card__name {
+	font-size: 18px;
+	font-weight: 700;
+	margin: 0 0 4px;
+}
+
+.ob-casino-card__bonus {
+	font-size: 14px;
+	color: #555;
+	margin: 0 0 8px;
+}
+
+.ob-casino-card__bonus strong {
+	color: var(--ob-accent);
+}
+
+.ob-casino-card__cta {
+	flex-shrink: 0;
+	text-align: center;
+}
+
+/* Star Ratings */
+
+.ob-stars {
+	display: inline-flex;
+	align-items: center;
+	gap: 2px;
+	margin-bottom: 6px;
+}
+
+.ob-stars .star {
+	color: var(--ob-primary);
+	font-size: 18px;
+}
+
+.ob-stars .star.empty {
+	color: var(--ob-border);
+}
+
+.ob-stars .rating-number {
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--ob-text);
+	margin-left: 6px;
+}
+
+/* -------------------------------------------------------
+   Review Score Box
+------------------------------------------------------- */
+
+.ob-score-box {
+	background: var(--ob-dark);
+	color: #fff;
+	border-radius: var(--ob-radius);
+	padding: 24px;
+	text-align: center;
+	margin-bottom: 24px;
+}
+
+.ob-score-box__number {
+	font-size: 56px;
+	font-weight: 900;
+	color: var(--ob-primary);
+	line-height: 1;
+}
+
+.ob-score-box__label {
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	opacity: 0.7;
+	margin-top: 4px;
+}
+
+/* Score breakdown bars */
+
+.ob-score-row {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 10px;
+}
+
+.ob-score-row__label {
+	min-width: 130px;
+	font-size: 14px;
+}
+
+.ob-score-row__bar-wrap {
+	flex: 1;
+	background: var(--ob-border);
+	border-radius: 4px;
+	height: 8px;
+	overflow: hidden;
+}
+
+.ob-score-row__bar {
+	height: 100%;
+	background: var(--ob-primary);
+	border-radius: 4px;
+	transition: width 0.5s ease;
+}
+
+.ob-score-row__value {
+	min-width: 30px;
+	font-size: 14px;
+	font-weight: 700;
+	text-align: right;
+}
+
+/* -------------------------------------------------------
+   Pros / Cons
+------------------------------------------------------- */
+
+.ob-pros-cons {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+	margin: 24px 0;
+}
+
+@media (max-width: 600px) {
+	.ob-pros-cons {
+		grid-template-columns: 1fr;
+	}
+}
+
+.ob-pros,
+.ob-cons {
+	border-radius: var(--ob-radius);
+	padding: 16px 20px;
+}
+
+.ob-pros {
+	background: #f0faf0;
+	border-left: 4px solid #27ae60;
+}
+
+.ob-cons {
+	background: #fdf0f0;
+	border-left: 4px solid var(--ob-accent);
+}
+
+.ob-pros h4,
+.ob-cons h4 {
+	margin: 0 0 10px;
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.ob-pros ul,
+.ob-cons ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ob-pros li,
+.ob-cons li {
+	font-size: 14px;
+	padding: 4px 0;
+	padding-left: 22px;
+	position: relative;
+}
+
+.ob-pros li::before {
+	content: '✓';
+	color: #27ae60;
+	position: absolute;
+	left: 0;
+	font-weight: 700;
+}
+
+.ob-cons li::before {
+	content: '✗';
+	color: var(--ob-accent);
+	position: absolute;
+	left: 0;
+	font-weight: 700;
+}
+
+/* -------------------------------------------------------
+   Affiliate Disclosure
+------------------------------------------------------- */
+
+.affiliate-disclosure {
+	font-size: 13px;
+	background: #fffbf0;
+	border-left: 4px solid var(--ob-primary);
+	padding: 10px 14px;
+	margin-bottom: 20px;
+}
+
+/* -------------------------------------------------------
+   Responsible Gambling Notice
+------------------------------------------------------- */
+
+.rg-notice {
+	background: #1a1a1a;
+	color: #aaa;
+	text-align: center;
+	padding: 12px;
+	font-size: 13px;
+}
+
+.rg-notice a {
+	color: var(--ob-primary);
+}
+
+/* -------------------------------------------------------
+   Category Grid (Homepage)
+------------------------------------------------------- */
+
+.ob-category-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 20px;
+	margin: 32px 0;
+}
+
+.ob-category-card {
+	background: #fff;
+	border: 1px solid var(--ob-border);
+	border-radius: var(--ob-radius);
+	padding: 28px 20px;
+	text-align: center;
+	text-decoration: none;
+	color: var(--ob-text);
+	transition: all 0.2s ease;
+}
+
+.ob-category-card:hover {
+	border-color: var(--ob-primary);
+	box-shadow: 0 4px 16px rgba(232, 160, 32, 0.15);
+	transform: translateY(-2px);
+	color: var(--ob-text);
+}
+
+.ob-category-card__icon {
+	font-size: 40px;
+	margin-bottom: 12px;
+}
+
+.ob-category-card__title {
+	font-size: 16px;
+	font-weight: 700;
+	margin-bottom: 6px;
+}
+
+.ob-category-card__count {
+	font-size: 13px;
+	color: #888;
+}
