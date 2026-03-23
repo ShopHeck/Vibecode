@@ -1,0 +1,165 @@
+[
+  {
+    "key": "group_casino_details",
+    "title": "Casino Details",
+    "fields": [
+      {
+        "key": "field_casino_overall_rating",
+        "label": "Overall Rating",
+        "name": "_casino_overall_rating",
+        "type": "number",
+        "instructions": "Score from 1.0 to 5.0 (e.g. 4.5)",
+        "min": 1,
+        "max": 5,
+        "step": 0.1,
+        "required": 1,
+        "wrapper": { "width": "25" }
+      },
+      {
+        "key": "field_casino_badge",
+        "label": "Badge",
+        "name": "_casino_badge",
+        "type": "text",
+        "instructions": "Optional badge text shown on card (e.g. Editor's Choice, Best Bonus, New)",
+        "wrapper": { "width": "25" }
+      },
+      {
+        "key": "field_casino_welcome_bonus",
+        "label": "Welcome Bonus",
+        "name": "_casino_welcome_bonus",
+        "type": "text",
+        "instructions": "e.g. 100% up to $500 + 50 Free Spins",
+        "required": 1,
+        "wrapper": { "width": "50" }
+      },
+      {
+        "key": "field_casino_affiliate_url",
+        "label": "Affiliate URL",
+        "name": "_casino_affiliate_url",
+        "type": "url",
+        "instructions": "ThirstyAffiliates cloaked URL (e.g. /go/betmgm/)",
+        "required": 1,
+        "wrapper": { "width": "50" }
+      },
+      {
+        "key": "field_casino_established",
+        "label": "Established Year",
+        "name": "_casino_established",
+        "type": "number",
+        "instructions": "Year the casino was established",
+        "wrapper": { "width": "25" }
+      },
+      {
+        "key": "field_casino_license",
+        "label": "License",
+        "name": "_casino_license",
+        "type": "text",
+        "instructions": "e.g. iGaming Ontario (iGO)",
+        "wrapper": { "width": "25" }
+      },
+      {
+        "key": "field_casino_min_deposit",
+        "label": "Min. Deposit",
+        "name": "_casino_min_deposit",
+        "type": "text",
+        "instructions": "e.g. $10",
+        "wrapper": { "width": "25" }
+      },
+      {
+        "key": "field_casino_withdrawal_time",
+        "label": "Withdrawal Time",
+        "name": "_casino_withdrawal_time",
+        "type": "text",
+        "instructions": "e.g. 1-3 business days",
+        "wrapper": { "width": "25" }
+      }
+    ],
+    "location": [
+      [{ "param": "post_type", "operator": "==", "value": "casino" }]
+    ],
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "menu_order": 0
+  },
+  {
+    "key": "group_casino_scores",
+    "title": "Score Breakdown",
+    "fields": [
+      {
+        "key": "field_casino_score_games",
+        "label": "Games",
+        "name": "_casino_score_games",
+        "type": "number",
+        "min": 1, "max": 5, "step": 0.1,
+        "wrapper": { "width": "20" }
+      },
+      {
+        "key": "field_casino_score_bonuses",
+        "label": "Bonuses",
+        "name": "_casino_score_bonuses",
+        "type": "number",
+        "min": 1, "max": 5, "step": 0.1,
+        "wrapper": { "width": "20" }
+      },
+      {
+        "key": "field_casino_score_ux",
+        "label": "User Experience",
+        "name": "_casino_score_ux",
+        "type": "number",
+        "min": 1, "max": 5, "step": 0.1,
+        "wrapper": { "width": "20" }
+      },
+      {
+        "key": "field_casino_score_support",
+        "label": "Support",
+        "name": "_casino_score_support",
+        "type": "number",
+        "min": 1, "max": 5, "step": 0.1,
+        "wrapper": { "width": "20" }
+      },
+      {
+        "key": "field_casino_score_payments",
+        "label": "Payments",
+        "name": "_casino_score_payments",
+        "type": "number",
+        "min": 1, "max": 5, "step": 0.1,
+        "wrapper": { "width": "20" }
+      }
+    ],
+    "location": [
+      [{ "param": "post_type", "operator": "==", "value": "casino" }]
+    ],
+    "position": "normal",
+    "menu_order": 1
+  },
+  {
+    "key": "group_casino_editorial",
+    "title": "Pros, Cons & Notes",
+    "fields": [
+      {
+        "key": "field_casino_pros",
+        "label": "Pros",
+        "name": "_casino_pros",
+        "type": "textarea",
+        "instructions": "One pro per line",
+        "rows": 5,
+        "wrapper": { "width": "50" }
+      },
+      {
+        "key": "field_casino_cons",
+        "label": "Cons",
+        "name": "_casino_cons",
+        "type": "textarea",
+        "instructions": "One con per line",
+        "rows": 5,
+        "wrapper": { "width": "50" }
+      }
+    ],
+    "location": [
+      [{ "param": "post_type", "operator": "==", "value": "casino" }]
+    ],
+    "position": "normal",
+    "menu_order": 2
+  }
+]
