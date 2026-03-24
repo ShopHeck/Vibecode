@@ -384,6 +384,63 @@ function ob_sponsored_badge( $post_id = null ) {
 }
 
 // -------------------------------------------------------
+// -------------------------------------------------------
+// Theme Setup
+// -------------------------------------------------------
+
+add_action( 'after_setup_theme', 'ontariosbest_setup' );
+function ontariosbest_setup() {
+
+	// Post thumbnails
+	add_theme_support( 'post-thumbnails' );
+
+	// Title tag handled by WordPress
+	add_theme_support( 'title-tag' );
+
+	// Custom logo
+	add_theme_support( 'custom-logo', array(
+		'height'      => 60,
+		'width'       => 200,
+		'flex-height' => true,
+		'flex-width'  => true,
+	) );
+
+	// HTML5 markup
+	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'gallery', 'caption', 'style', 'script' ) );
+
+	// Navigation menus
+	register_nav_menus( array(
+		'primary' => __( 'Primary Menu', 'ontariosbest' ),
+		'footer'  => __( 'Footer Menu', 'ontariosbest' ),
+	) );
+
+	// Custom image sizes
+	add_image_size( 'casino-logo',   200, 100, false );
+	add_image_size( 'listing-thumb', 400, 300, true  );
+}
+
+// -------------------------------------------------------
+// Enqueue Google Fonts (Inter)
+// -------------------------------------------------------
+
+add_action( 'wp_enqueue_scripts', 'ontariosbest_fonts' );
+function ontariosbest_fonts() {
+	wp_enqueue_style(
+		'ontariosbest-inter',
+		'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap',
+		array(),
+		null
+	);
+}
+
+// -------------------------------------------------------
+// Excerpt length
+// -------------------------------------------------------
+
+add_filter( 'excerpt_length', function() { return 28; }, 999 );
+add_filter( 'excerpt_more',   function() { return '…'; } );
+
+// -------------------------------------------------------
 // Remove WordPress version from head (security)
 // -------------------------------------------------------
 

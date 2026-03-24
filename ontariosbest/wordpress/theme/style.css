@@ -384,3 +384,184 @@ a:hover {
 	font-size: 13px;
 	color: #888;
 }
+
+/* -------------------------------------------------------
+   Page Wrapper
+------------------------------------------------------- */
+
+.ob-page-wrap {
+	background: var(--ob-light);
+	min-height: 60vh;
+}
+
+/* -------------------------------------------------------
+   Review / Blog Content Typography
+------------------------------------------------------- */
+
+.ob-review-content,
+.entry-content {
+	font-size: 16px;
+	line-height: 1.75;
+	color: #333;
+}
+
+.ob-review-content h2,
+.entry-content h2 {
+	font-size: 22px;
+	font-weight: 800;
+	margin: 36px 0 12px;
+	color: var(--ob-dark);
+}
+
+.ob-review-content h3,
+.entry-content h3 {
+	font-size: 18px;
+	font-weight: 700;
+	margin: 28px 0 10px;
+	color: var(--ob-dark);
+}
+
+.ob-review-content p,
+.entry-content p {
+	margin: 0 0 18px;
+}
+
+.ob-review-content ul,
+.ob-review-content ol,
+.entry-content ul,
+.entry-content ol {
+	padding-left: 24px;
+	margin-bottom: 18px;
+}
+
+.ob-review-content li,
+.entry-content li {
+	margin-bottom: 6px;
+}
+
+.ob-review-content table,
+.entry-content table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 15px;
+	margin-bottom: 24px;
+}
+
+.ob-review-content table th,
+.entry-content table th {
+	background: var(--ob-dark);
+	color: #fff;
+	padding: 10px 14px;
+	text-align: left;
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.ob-review-content table td,
+.entry-content table td {
+	padding: 10px 14px;
+	border-bottom: 1px solid var(--ob-border);
+}
+
+.ob-review-content table tr:nth-child(even) td,
+.entry-content table tr:nth-child(even) td {
+	background: var(--ob-light);
+}
+
+.ob-review-content blockquote,
+.entry-content blockquote {
+	border-left: 4px solid var(--ob-primary);
+	margin: 24px 0;
+	padding: 12px 20px;
+	background: #fffbf0;
+	font-size: 16px;
+	font-style: italic;
+	color: #555;
+}
+
+/* -------------------------------------------------------
+   Responsive: sidebar layouts
+------------------------------------------------------- */
+
+@media (max-width: 960px) {
+	/* Stack main + sidebar vertically */
+	.ob-page-wrap .ast-container > .ob-layout-flex,
+	[style*="display:flex"] {
+		/* flex layouts inline; can't override globally without specificity */
+	}
+}
+
+@media (max-width: 768px) {
+	/* Casino cards stack */
+	.ob-casino-card {
+		flex-wrap: wrap;
+	}
+
+	.ob-casino-card__logo {
+		width: 80px;
+	}
+
+	/* Score rows */
+	.ob-score-row__label {
+		min-width: 80px;
+		font-size: 12px;
+	}
+
+	/* Category grid 2 cols on mobile */
+	.ob-category-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 480px) {
+	.ob-category-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.ob-btn,
+	.ob-btn-primary {
+		padding: 11px 20px;
+		font-size: 14px;
+	}
+}
+
+/* -------------------------------------------------------
+   Pagination
+------------------------------------------------------- */
+
+.page-numbers {
+	display: inline-block;
+	padding: 8px 14px;
+	margin: 0 2px;
+	border: 1px solid var(--ob-border);
+	border-radius: 6px;
+	font-size: 14px;
+	color: var(--ob-text);
+	text-decoration: none;
+	transition: all 0.15s;
+}
+
+.page-numbers:hover,
+.page-numbers.current {
+	background: var(--ob-primary);
+	border-color: var(--ob-primary);
+	color: #fff;
+}
+
+/* -------------------------------------------------------
+   WordPress Alignment Helpers
+------------------------------------------------------- */
+
+.alignleft  { float: left;  margin: 0 20px 16px 0; }
+.alignright { float: right; margin: 0 0 16px 20px; }
+.aligncenter { display: block; margin: 0 auto 16px; }
+
+img.alignleft,
+img.alignright,
+img.aligncenter {
+	border-radius: var(--ob-radius);
+	max-width: 100%;
+	height: auto;
+}
