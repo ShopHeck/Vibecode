@@ -3,34 +3,33 @@
 Work through this checklist top to bottom before going live.
 Each section must be fully complete before moving to the next.
 
+> **Last reviewed:** 2026-03-24
+> **Status:** Theme live at ontariosbest.com — working on content & plugins
+
 ---
 
 ## 1. Hosting & DNS
 
-- [ ] Cloudways account created (cloudways.com)
-- [ ] Server launched: DigitalOcean, Toronto datacenter, 4GB RAM
-- [ ] WordPress application created on the server
-- [ ] Primary domain set to `ontariosbest.com` in Cloudways app settings
-- [ ] SSL certificate issued (Let's Encrypt — Cloudways does this automatically)
-- [ ] HTTPS working — `https://ontariosbest.com` loads without errors
-- [ ] Domain A record pointed to the Cloudways server IP
-- [ ] www redirect configured (www → non-www, or vice versa — pick one and stick to it)
+- [x] Cloudways account created
+- [x] WordPress application created on the server
+- [x] Primary domain set to `ontariosbest.com`
+- [x] SSL / HTTPS working — site loads at ontariosbest.com
+- [ ] Domain A record confirmed pointing to Cloudways server IP
+- [ ] www redirect configured (www → non-www or vice versa — pick one)
 - [ ] Cloudflare nameservers set (if using Cloudflare proxy)
-- [ ] Cloudflare CDN enabled from Cloudways panel
+- [ ] Cloudflare CDN enabled
 - [ ] Staging environment created (Cloudways one-click clone)
 
 ---
 
 ## 2. WordPress Core Setup
 
-- [ ] WordPress version: latest stable
-- [ ] Admin username: NOT "admin" — change to something unique
-- [ ] Admin email: real business email
-- [ ] Site Title: `Ontario's Best`
+- [x] WordPress installed and running
+- [x] Site Title: `Ontario's Best` ✓ (visible in browser tab)
+- [x] Admin account created (logged in as Michaelheckert)
+- [ ] Admin username: confirm it is NOT "admin"
 - [ ] Tagline: `Ontario's Top-Rated Casinos, Travel, Entertainment & More`
-- [ ] WordPress address (URL): `https://ontariosbest.com`
-- [ ] Site address (URL): `https://ontariosbest.com`
-- [ ] Settings → Permalinks → Post name `/%postname%/`
+- [x] Settings → Permalinks → Post name `/%postname%/` ✓ (URLs working)
 - [ ] Settings → General → Timezone: `America/Toronto`
 - [ ] Settings → General → Language: `English (Canada)`
 - [ ] Settings → Reading → "Discourage search engines" is **UNCHECKED** before launch
@@ -41,35 +40,36 @@ Each section must be fully complete before moving to the next.
 
 ## 3. Theme Installation
 
-- [ ] Astra theme installed and activated
+- [x] Astra theme installed and activated ✓
 - [ ] Astra Pro add-on installed and license key entered
-- [ ] OntariosBest child theme zip created from repo `wordpress/theme/` files
-- [ ] Child theme installed and activated (Appearance → Themes → Add New → Upload)
+- [x] OntariosBest child theme uploaded and activated ✓
+- [x] Hero, navigation, category grid rendering on desktop ✓
+- [ ] ~~Hamburger menu icon broken on mobile~~ — **fixed in latest commit** (re-upload theme zip)
+- [ ] ~~Social icons showing letters in footer~~ — **fixed in latest commit** (re-upload theme zip)
+- [ ] Verify mobile hero renders after theme re-upload
 - [ ] Custom logo uploaded (Appearance → Customize → Site Identity)
-- [ ] Primary nav menu created and assigned to "Primary" location (Appearance → Menus)
-  - Items: Home, Casinos, Travel, Restaurants, Entertainment, Services, Blog
+- [x] Primary nav menu assigned — Casinos, Travel, Restaurants, Entertainment, Services, Blog ✓
 - [ ] Footer menu created and assigned to "Footer" location
   - Items: About, Contact, Advertise, Privacy Policy, Terms, Affiliate Disclosure, Responsible Gambling
+- [ ] Social media URLs updated in footer.php (currently `#` placeholders)
 
 ---
 
 ## 4. Plugin Installation (in this order)
 
-- [ ] **Rank Math Pro** — install, activate, enter license
-- [ ] **Advanced Custom Fields Pro** — install, activate, enter license
-  - Import `wordpress/acf/casino-fields.json` (ACF → Tools → Import)
-  - Import `wordpress/acf/listing-fields.json`
-  - Verify field groups appear on casino and listing post types
+- [x] **Rank Math SEO** — installed and active ✓ (visible in admin bar)
+- [x] **Advanced Custom Fields Pro** — installed, ACF fields imported ✓
+- [x] **WPForms** — installed and active ✓ (visible in admin bar)
+- [x] **Imagify** — installed and active ✓ (visible in admin bar)
+- [ ] **Rank Math Pro** — enter license key (upgrade from free if needed)
 - [ ] **Kadence Blocks Pro** — install, activate
 - [ ] **ThirstyAffiliates Pro** — install, activate (configure in step 6)
 - [ ] **WP Review Pro** — install, activate
-- [ ] **WPForms Pro** — install, activate, enter license
 - [ ] **TablePress** — install, activate
 - [ ] **MonsterInsights** — install, activate (configure in step 7)
 - [ ] **Mailchimp for WP** — install, activate (connect Mailchimp account)
 - [ ] **UpdraftPlus** — install, activate (configure in step 9)
 - [ ] **Wordfence** — install, activate (configure in step 9)
-- [ ] **Imagify** — install, activate (connect API key, set quality to "Aggressive")
 - [ ] **WP Rocket** — install, activate LAST (configure after everything else works)
 
 ---

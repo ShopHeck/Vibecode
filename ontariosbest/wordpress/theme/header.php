@@ -69,8 +69,12 @@
 			<button id="ob-mobile-toggle"
 			        aria-label="Toggle menu"
 			        aria-expanded="false"
-			        style="display:none;background:none;border:1px solid var(--ob-border);border-radius:6px;padding:6px 10px;cursor:pointer;font-size:18px;line-height:1;">
-				☰
+			        style="display:none;background:none;border:1px solid var(--ob-border);border-radius:6px;padding:8px 10px;cursor:pointer;line-height:1;color:var(--ob-text);">
+				<svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<rect width="20" height="2" rx="1" fill="currentColor"/>
+					<rect y="7" width="20" height="2" rx="1" fill="currentColor"/>
+					<rect y="14" width="20" height="2" rx="1" fill="currentColor"/>
+				</svg>
 			</button>
 		</div>
 
@@ -217,11 +221,13 @@
 	var toggle = document.getElementById('ob-mobile-toggle');
 	var nav    = document.getElementById('ob-mobile-nav');
 	if (toggle && nav) {
+		var iconMenu  = '<svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="20" height="2" rx="1" fill="currentColor"/><rect y="7" width="20" height="2" rx="1" fill="currentColor"/><rect y="14" width="20" height="2" rx="1" fill="currentColor"/></svg>';
+		var iconClose = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 		toggle.addEventListener('click', function() {
 			var open = nav.style.display !== 'none';
 			nav.style.display = open ? 'none' : 'block';
 			toggle.setAttribute('aria-expanded', String(!open));
-			toggle.textContent = open ? '☰' : '✕';
+			toggle.innerHTML = open ? iconMenu : iconClose;
 		});
 	}
 })();
