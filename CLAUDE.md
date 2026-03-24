@@ -6,7 +6,94 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **OntariosBest.com** — a live WordPress affiliate directory at ontariosbest.com targeting Ontario residents. Primary revenue is iGO-licensed casino affiliate commissions. The repo contains the WordPress child theme, ACF field definitions, deployment scripts, and page content.
 
-Current status: Site is live. Theme active. All plugins installed. All required pages published. Waiting on casino affiliate program approvals (applied, 1–7 day turnaround). Content creation is the active phase.
+## Current Status (March 24, 2026)
+
+### Done ✅
+- Site live at ontariosbest.com — Cloudways, SSL, HTTPS
+- Astra + OntariosBest child theme active
+- All plugins installed and configured (Rank Math, ACF Pro, WPForms, Imagify, ThirstyAffiliates, Kadence Blocks, etc.)
+- All required pages live (About, Contact, Privacy Policy, Terms, Affiliate Disclosure, Responsible Gambling, Advertise)
+- All 12 casino review content files written: `wordpress/content/casinos/`
+- All 5 blog post content files written: `wordpress/content/blog/`
+- Legal page content files written: `wordpress/content/` (privacy-policy, terms, affiliate-disclosure, about)
+- Casino affiliate applications submitted to all 12 operators (approvals pending 1–7 days)
+- Theme zip rebuilt with SVG social icon fix (re-upload needed — see below)
+
+### Needs Doing — Next Session
+1. **Write `ontariosbest/publish-content.sh`** — WP-CLI script to publish all 12 casino reviews + 5 blog posts from the content files. This is the top priority. See spec below.
+2. **Update `ontariosbest/cloudways-setup.sh`** — add copy + run of publish-content.sh after deploy.sh
+3. **Re-upload theme zip** — fixes F/I/T social icon placeholders in footer. Download `dist/ontariosbest-theme.zip` from repo, upload via WP Admin → Appearance → Themes → Add New → Upload (replace current)
+4. **Set ThirstyAffiliates placeholder links** — 12 casino `/go/slug/` links pointing to casino homepages until affiliate approvals arrive
+5. **Analytics** — Create GA4 property, connect MonsterInsights, submit sitemap to Search Console
+
+### Affiliate Link Placeholder URLs (set in ThirstyAffiliates)
+| Slug | Placeholder |
+|------|------------|
+| /go/betmgm/ | https://betmgm.ca |
+| /go/draftkings/ | https://draftkings.ca |
+| /go/fanduel/ | https://fanduel.ca |
+| /go/bet99/ | https://bet99.com |
+| /go/bet365/ | https://bet365.ca |
+| /go/unibet/ | https://unibet.ca |
+| /go/888casino/ | https://888casino.com/ontario |
+| /go/pointsbet/ | https://pointsbet.ca |
+| /go/leovegas/ | https://leovegas.ca |
+| /go/jackpot-city/ | https://jackpotcity.ca |
+| /go/spin-casino/ | https://spincasino.com |
+| /go/ruby-fortune/ | https://rubyfortune.com |
+
+---
+
+## publish-content.sh — Spec for Next Session
+
+**File to create:** `ontariosbest/publish-content.sh`
+**Runs from:** WordPress webroot (`public_html/`) via `wp --allow-root`
+**Idempotent:** Yes — creates posts if missing, updates if existing
+
+### ACF meta keys used by `single-casino.php`
+```
+_casino_overall_rating   _casino_badge            _casino_welcome_bonus
+_casino_affiliate_url    _casino_established      _casino_license
+_casino_min_deposit      _casino_withdrawal_time  _casino_score_games
+_casino_score_bonuses    _casino_score_ux         _casino_score_support
+_casino_score_payments   _casino_pros             _casino_cons
+```
+ACF field keys (for reference pointer stored at `__casino_[name]`):
+`field_casino_overall_rating`, `field_casino_badge`, `field_casino_welcome_bonus`,
+`field_casino_affiliate_url`, `field_casino_established`, `field_casino_license`,
+`field_casino_min_deposit`, `field_casino_withdrawal_time`, `field_casino_score_games`,
+`field_casino_score_bonuses`, `field_casino_score_ux`, `field_casino_score_support`,
+`field_casino_score_payments`, `field_casino_pros`, `field_casino_cons`
+
+### Script structure
+1. Create taxonomy terms: `casino_feature` (15 terms), `payment_method` (7 terms), blog categories (3)
+2. Write HTML content to temp files via single-quoted heredocs (`'HTMLEOF'` — no variable expansion)
+3. For each casino: `wp post create` or `wp post update`, then `wp post meta update` for all ACF fields, then `wp post term set`
+4. For each blog post: `wp post create` or `wp post update`, set Rank Math meta, set category
+5. Update legal pages (Privacy Policy, Terms, Affiliate Disclosure, About) with full content from content files
+
+### 12 Casino Data (slug → rating, badge, bonus, affiliate URL, established, min deposit, withdraw, scores)
+| Slug | Rating | Badge | Bonus | Est |
+|------|--------|-------|-------|-----|
+| betmgm-ontario | 4.5 | Editor's Choice | 100% up to $200 | 2022 |
+| draftkings-ontario | 4.3 | Best for Sports Fans | $50 on $5 Deposit | 2022 |
+| fanduel-ontario | 4.4 | Top Rated | Up to $200 | 2022 |
+| bet99-ontario | 4.1 | Best Canadian Brand | 100% up to $500 | 2020 |
+| bet365-ontario | 4.6 | Biggest Game Library | Up to $200 | 2022 |
+| unibet-ontario | 4.1 | Most Responsible | $10 No Deposit | 2022 |
+| 888casino-ontario | 4.0 | Est. 1997 | 100% up to $200 | 2022 |
+| pointsbet-ontario | 3.9 | Best Odds | Up to $200 | 2022 |
+| leovegas-ontario | 4.5 | Best Mobile Casino | 100% up to $500 + 200 FS | 2022 |
+| jackpot-city-ontario | 4.1 | Canadian Classic | 100% up to $1,600 | 1998 |
+| spin-casino-ontario | 4.0 | Slots Specialist | 100% up to $1,000 | 2001 |
+| ruby-fortune-ontario | 3.9 | Classic Choice | 100% up to $750 | 2003 |
+
+### Run command (content only, after site is set up)
+```bash
+ssh master@147.182.159.124 -p 22
+cd /home/1604690.cloudwaysapps.com/hagyftbksy/public_html
+bash publish-content.sh
+```
 
 ---
 
@@ -123,11 +210,31 @@ Violating these rules can terminate affiliate relationships and cause iGO compli
 
 ## Content Files
 
-Ready-to-paste content for WP Admin is in `wordpress/content/`:
-- `privacy-policy.md` — PIPEDA-compliant, paste into Privacy Policy page (Legal Page template)
-- `terms-and-conditions.md` — paste into Terms & Conditions page (Legal Page template)
-- `affiliate-disclosure.md` — FTC + ASC compliant, paste into Affiliate Disclosure page
-- `about.md` — editorial standards + mission, paste into About page
+All content is in `wordpress/content/` — **do not paste manually**, use `publish-content.sh` (to be built):
+
+| File | WP destination |
+|------|---------------|
+| `casinos/betmgm-ontario.md` | Casino post — betmgm-ontario |
+| `casinos/draftkings-ontario.md` | Casino post — draftkings-ontario |
+| `casinos/fanduel-ontario.md` | Casino post — fanduel-ontario |
+| `casinos/bet99-ontario.md` | Casino post — bet99-ontario |
+| `casinos/bet365-ontario.md` | Casino post — bet365-ontario |
+| `casinos/unibet-ontario.md` | Casino post — unibet-ontario |
+| `casinos/888casino-ontario.md` | Casino post — 888casino-ontario |
+| `casinos/pointsbet-ontario.md` | Casino post — pointsbet-ontario |
+| `casinos/leovegas-ontario.md` | Casino post — leovegas-ontario |
+| `casinos/jackpot-city-ontario.md` | Casino post — jackpot-city-ontario |
+| `casinos/spin-casino-ontario.md` | Casino post — spin-casino-ontario |
+| `casinos/ruby-fortune-ontario.md` | Casino post — ruby-fortune-ontario |
+| `blog/best-online-casinos-ontario-2026.md` | Post — hub page, links to all reviews |
+| `blog/how-to-choose-online-casino-ontario.md` | Post — casino guide |
+| `blog/ontario-igaming-what-you-need-to-know.md` | Post — explainer |
+| `blog/best-things-to-do-ontario-weekend.md` | Post — Ontario travel |
+| `blog/best-restaurants-toronto-2026.md` | Post — Toronto restaurants |
+| `privacy-policy.md` | Page — /privacy-policy/ (Legal Page template) |
+| `terms-and-conditions.md` | Page — /terms/ (Legal Page template) |
+| `affiliate-disclosure.md` | Page — /affiliate-disclosure/ (Legal Page template) |
+| `about.md` | Page — /about/ (About template) |
 
 ---
 
