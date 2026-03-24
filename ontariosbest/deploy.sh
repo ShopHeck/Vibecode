@@ -127,13 +127,17 @@ log "OntariosBest child theme activated"
 log "Installing free plugins from WordPress.org..."
 
 FREE_PLUGINS=(
+    "advanced-custom-fields"
+    "seo-by-rank-math"
+    "kadence-blocks"
+    "thirstyaffiliates"
     "tablepress"
     "wpforms-lite"
+    "litespeed-cache"
     "updraftplus"
     "wordfence"
     "imagify"
-    "query-monitor"
-    "redirection"
+    "google-analytics-for-wordpress"
 )
 
 for plugin in "${FREE_PLUGINS[@]}"; do
@@ -145,7 +149,7 @@ for plugin in "${FREE_PLUGINS[@]}"; do
     fi
 done
 
-warn "Premium plugins (Rank Math Pro, ACF Pro, ThirstyAffiliates Pro, WP Rocket, Kadence Blocks Pro) must be installed manually via WordPress admin."
+log "All free plugins installed"
 
 # ---------------------------------------------------------
 # 7. Import ACF field groups
@@ -160,7 +164,7 @@ if [ -d "$ACF_DIR" ]; then
             $WP acf import --json_file="$json" 2>/dev/null && log "Imported: $json" || warn "Could not import $json via CLI — import manually in ACF > Tools"
         done
     else
-        warn "ACF not installed yet — import field groups after installing ACF Pro (ACF > Tools > Import)"
+        warn "ACF not installed yet — import field groups after installing ACF Free (ACF > Tools > Import)"
     fi
 fi
 
@@ -288,12 +292,9 @@ $WP eval "
 # ---------------------------------------------------------
 
 # If Rank Math is installed, configure basics
-if $WP plugin is-installed "seo-by-rank-math" 2>/dev/null || \
-   $WP plugin is-installed "rank-math-seo" 2>/dev/null; then
+if $WP plugin is-installed "seo-by-rank-math" 2>/dev/null; then
     log "Configuring Rank Math basics..."
     $WP option update rank_math_general_settings '{"breadcrumbs":"on","noindex_empty_taxonomies":"on"}' --format=json 2>/dev/null || true
-else
-    warn "Rank Math Pro not installed yet — install manually"
 fi
 
 # ---------------------------------------------------------
@@ -358,13 +359,13 @@ echo -e "  ${GREEN}Deployment Complete!${NC}"
 echo "=================================================="
 echo ""
 echo "Next steps:"
-echo "  1. Install premium plugins (Rank Math Pro, ACF Pro, ThirstyAffiliates Pro, WP Rocket, Kadence Blocks Pro) via WP admin"
-echo "  2. Import ACF field groups: ACF > Tools > Import > upload acf/casino-fields.json and acf/listing-fields.json"
-echo "  3. Add affiliate links in ThirstyAffiliates"
-echo "  4. Configure Rank Math Pro (connect Search Console, set schema types)"
+echo "  1. Import ACF field groups: ACF > Tools > Import > upload acf/casino-fields.json and acf/listing-fields.json"
+echo "  2. Configure Rank Math SEO: connect Google Search Console, set Review schema for casino post type"
+echo "  3. Add affiliate links in ThirstyAffiliates (Plugins > ThirstyAffiliates > Add New Link)"
+echo "  4. Build homepage with Kadence Blocks"
 echo "  5. Add content: 12 casino reviews, 8 listings, 5 blog posts"
-echo "  6. Configure WP Rocket LAST"
-echo "  7. Run: wp option update blogpublic 1 --allow-root (to enable indexing)"
+echo "  6. Configure LiteSpeed Cache LAST (after everything else is confirmed working)"
+echo "  7. Run: wp option update blogpublic 1 --allow-root (to enable indexing at launch)"
 echo ""
 echo "  Site URL: $SITE_URL"
 echo "  WP Admin: $SITE_URL/wp-admin"
