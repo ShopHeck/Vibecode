@@ -69,12 +69,23 @@ Vibecode/
 - [ ] Configure WP Rocket (last — after all other plugins working)
 - [ ] Configure Wordfence + UpdraftPlus
 
-### Phase 3: Content (FIRST TODO — start here)
-- [ ] **Add 12 casino reviews** (seed script: wordpress/seeds/casinos-seed.sh)
-- [ ] **Add 8 directory listings** (3 travel, 3 restaurant, 2 entertainment)
-- [ ] **Write 5 foundational blog posts**
-- [ ] Add best-of pages (3 minimum)
-- [ ] Implement affiliate links in ThirstyAffiliates
+### Phase 3: Content
+- [x] **Add 12 casino reviews** (seed script: wordpress/seeds/casinos-seed.sh)
+- [x] **Add 8 directory listings** (3 travel, 3 restaurant, 2 entertainment — wordpress/seeds/listings-seed.sh)
+- [x] **Write 5 foundational blog posts** (wordpress/seeds/blog-seed.sh)
+- [x] Add best-of pages (3 minimum — wordpress/seeds/bestof-seed.sh)
+- [x] Implement affiliate links in ThirstyAffiliates (wordpress/seeds/affiliate-links-seed.sh)
+
+> **Run seeds in order:**
+> ```bash
+> bash wordpress/seeds/casinos-seed.sh
+> bash wordpress/seeds/listings-seed.sh
+> bash wordpress/seeds/blog-seed.sh
+> bash wordpress/seeds/bestof-seed.sh
+> bash wordpress/seeds/affiliate-links-seed.sh
+> ```
+> Then open WP Admin and add featured images to each post.
+> In affiliate-links-seed.sh, replace all `REPLACE_WITH_REAL_URL` values with your real affiliate tracking URLs before running in production.
 
 ### Phase 4: Launch
 - [ ] Complete all items in wordpress/launch-checklist.md
