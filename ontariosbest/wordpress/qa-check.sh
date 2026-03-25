@@ -227,15 +227,15 @@ check_plugin() {
     fi
 }
 
-check_plugin "rank-math-seo"          "Rank Math Pro"          "required"
-check_plugin "advanced-custom-fields" "ACF Pro"                "required"
-check_plugin "thirstyaffiliates"      "ThirstyAffiliates Pro"  "required"
+check_plugin "seo-by-rank-math"       "Rank Math SEO"          "required"
+check_plugin "advanced-custom-fields" "ACF"                    "required"
+check_plugin "thirstyaffiliates"      "ThirstyAffiliates"      "required"
 check_plugin "wpforms-lite"           "WPForms"                "required"
 check_plugin "updraftplus"            "UpdraftPlus"            "required"
 check_plugin "wordfence"              "Wordfence"              "required"
 check_plugin "imagify"                "Imagify"                "recommended"
 check_plugin "tablepress"             "TablePress"             "recommended"
-check_plugin "wp-rocket"              "WP Rocket"              "recommended"
+check_plugin "wp-super-cache"         "WP Super Cache"         "recommended"
 
 # =============================================================================
 # 9. Ontario Casino Compliance
@@ -369,11 +369,10 @@ fi
 # =============================================================================
 section "Sitemap"
 
-if $WP plugin is-active "rank-math-seo" 2>/dev/null; then
-    SITEMAP_ENABLED=$($WP option get "rank-math-options-general" 2>/dev/null | grep -c "sitemap" || echo "0")
+if $WP plugin is-active "seo-by-rank-math" 2>/dev/null; then
     pass "Rank Math: active (verify sitemap at /sitemap_index.xml manually)"
 else
-    warn "Rank Math Pro not active — configure sitemap manually"
+    warn "Rank Math not active — configure sitemap manually"
 fi
 
 # =============================================================================
