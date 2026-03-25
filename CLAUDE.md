@@ -56,10 +56,10 @@ Vibecode/
 - [x] Docker local dev environment (docker-compose.yml + local-setup.sh)
 - [x] Cloudways production deploy script (deploy.sh)
 - [x] Theme zip packaged (dist/ontariosbest-theme.zip)
-- [ ] Register/confirm domain DNS → ontariosbest.com
-- [ ] Set up Cloudways server + WordPress install
-- [ ] Run deploy.sh on production server
-- [ ] Configure Cloudflare CDN + SSL
+- [x] Register/confirm domain DNS → ontariosbest.com ✓ LIVE
+- [x] Set up Cloudways server + WordPress install ✓ LIVE
+- [x] Run deploy.sh on production server
+- [x] Configure Cloudflare CDN + SSL
 
 ### Phase 2: WordPress Configuration
 - [ ] Install all plugins (see wordpress/plugins.md — install in listed order)
