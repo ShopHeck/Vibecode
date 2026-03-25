@@ -88,11 +88,14 @@ Vibecode/
 > In affiliate-links-seed.sh, replace all `REPLACE_WITH_REAL_URL` values with your real affiliate tracking URLs before running in production.
 
 ### Phase 4: Launch
-- [ ] Complete all items in wordpress/launch-checklist.md
-- [ ] QA on mobile/desktop/tablet
+- [x] Pre-launch QA check script (wordpress/qa-check.sh — validates all checklist items)
+- [x] Go-live launch script (wordpress/launch.sh — flips public, purges caches, submits sitemap)
+- [ ] Run qa-check.sh on production — fix all FAILs before proceeding
+- [ ] QA on mobile/desktop/tablet (375px, 768px, 1024px)
 - [ ] Google PageSpeed 85+ mobile, 90+ desktop
-- [ ] Submit sitemap to Search Console
+- [ ] Submit sitemap to Search Console: /sitemap_index.xml
 - [ ] Ontario casino compliance review (see launch-checklist §10)
+- [ ] Run wordpress/launch.sh to go live
 
 ---
 
