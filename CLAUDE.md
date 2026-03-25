@@ -62,11 +62,11 @@ Vibecode/
 - [x] Configure Cloudflare CDN + SSL
 
 ### Phase 2: WordPress Configuration
-- [ ] Install all plugins (see wordpress/plugins.md — install in listed order)
+- [ ] Install all plugins — **free versions only** (see wordpress/plugins.md — install in listed order)
 - [ ] Import ACF field groups (ACF → Tools → Import both JSON files)
-- [ ] Configure Rank Math Pro (connect GSC, set schema types per CPT)
+- [ ] Configure Rank Math (connect GSC, set schema types per CPT)
 - [ ] Configure ThirstyAffiliates (/go/ prefix, link categories)
-- [ ] Configure WP Rocket (last — after all other plugins working)
+- [ ] Configure WP Super Cache (last — after all other plugins working)
 - [ ] Configure Wordfence + UpdraftPlus
 
 ### Phase 3: Content
