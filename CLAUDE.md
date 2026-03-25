@@ -64,12 +64,12 @@ Vibecode/
 - [x] Connect Google Analytics ✓
 
 ### Phase 2: WordPress Configuration
-- [ ] Install all plugins — **free versions only** (see wordpress/plugins.md — install in listed order)
-- [ ] Import ACF field groups (ACF → Tools → Import both JSON files)
-- [ ] Configure Rank Math (connect GSC, set schema types per CPT)
-- [ ] Configure ThirstyAffiliates (/go/ prefix, link categories)
-- [ ] Configure WP Super Cache (last — after all other plugins working)
-- [ ] Configure Wordfence + UpdraftPlus
+- [x] Install all plugins — **free versions only** (see wordpress/plugins.md — install in listed order)
+- [x] Import ACF field groups (ACF → Tools → Import both JSON files)
+- [x] Configure Rank Math (connect GSC, set schema types per CPT)
+- [x] Configure ThirstyAffiliates (/go/ prefix, link categories)
+- [x] Configure WP Super Cache (last — after all other plugins working)
+- [x] Configure Wordfence + UpdraftPlus
 
 ### Phase 3: Content
 - [x] **Add 12 casino reviews** (seed script: wordpress/seeds/casinos-seed.sh)
