@@ -60,6 +60,8 @@ Vibecode/
 - [x] Set up Cloudways server + WordPress install ✓ LIVE
 - [x] Run deploy.sh on production server
 - [x] Configure Cloudflare CDN + SSL
+- [x] Connect Google Merchant Center ✓
+- [x] Connect Google Analytics ✓
 
 ### Phase 2: WordPress Configuration
 - [ ] Install all plugins — **free versions only** (see wordpress/plugins.md — install in listed order)
