@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toronto City Guide 2026 | Ontario's Best Travel Guide</title>
+<meta name="description" content="The essential Toronto city guide for 2026. Hotels, things to do, neighbourhoods, getting around, and what's new this year — including FIFA World Cup, WNBA Tempo, and the Eglinton LRT.">
+<meta name="keywords" content="Toronto city guide 2026, visit Toronto Canada, Toronto travel guide, Toronto tourism 2026, things to see Toronto">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #F5F0E8;
+    --paper-2: #EDE8DE;
+    --paper-3: #E4DDD0;
+    --ink: #1C1917;
+    --ink-2: #3D3730;
+    --ink-3: #6B6358;
+    --ink-4: #9A9088;
+    --terra: #B85C38;
+    --terra-2: #D4724E;
+    --amber: #C8922A;
+    --border: rgba(28,25,23,0.12);
+    --border-light: rgba(28,25,23,0.07);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  header {
+    background: var(--ink);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-top {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--paper);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+  .logo em { font-style: italic; color: var(--terra-2); }
+  nav { display: flex; align-items: center; gap: 28px; }
+  nav a {
+    color: rgba(245,240,232,0.55);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--paper); }
+  nav a.active { color: var(--terra-2); }
+  .nav-divider { width: 1px; height: 16px; background: rgba(245,240,232,0.15); }
+
+  /* HERO — Toronto skyline photo with editorial dark overlay */
+  .hero {
+    background:
+      linear-gradient(
+        to top,
+        rgba(28,25,23,0.97) 0%,
+        rgba(28,25,23,0.75) 40%,
+        rgba(28,25,23,0.45) 70%,
+        rgba(28,25,23,0.55) 100%
+      ),
+      url('https://images.unsplash.com/photo-1517090504586-fde19ea6066f?w=1600&q=80&fit=crop')
+      center center / cover no-repeat;
+    position: relative;
+    overflow: hidden;
+    min-height: 580px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  /* Subtle terracotta colour wash on right side */
+  .hero-decoration {
+    position: absolute;
+    top: 0; right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(184,92,56,0.18) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .hero-vertical-type {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    transform-origin: center center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.2);
+    white-space: nowrap;
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 32px 80px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 80px;
+    align-items: end;
+  }
+
+  .hero-left {}
+
+  .hero-city-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--terra-2);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-city-label::before { content: ''; width: 28px; height: 1px; background: var(--terra); }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 9vw, 8rem);
+    font-weight: 700;
+    line-height: 0.88;
+    letter-spacing: -0.03em;
+    color: var(--paper);
+    margin-bottom: 32px;
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(245,240,232,0.55);
+    line-height: 1.55;
+    max-width: 480px;
+  }
+
+  /* Hero right panel — quick facts */
+  .hero-panel {
+    border: 1px solid rgba(245,240,232,0.15);
+    border-radius: 3px;
+    padding: 28px;
+    background: rgba(28,25,23,0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .panel-title {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terra-2);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(245,240,232,0.1);
+  }
+
+  .fact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(245,240,232,0.06);
+    gap: 16px;
+  }
+  .fact-row:last-child { border-bottom: none; }
+
+  .fact-label {
+    font-size: 0.78rem;
+    color: rgba(245,240,232,0.4);
+    flex-shrink: 0;
+  }
+
+  .fact-val {
+    font-size: 0.82rem;
+    color: var(--paper);
+    font-weight: 400;
+    text-align: right;
+  }
+
+  /* SECTION TYPES */
+  .page-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 72px 32px 96px;
+  }
+
+  .section-rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .section-rule::before { content: ''; width: 24px; height: 2px; background: var(--terra); }
+  .section-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terra);
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  h2 em { font-style: italic; color: var(--terra); }
+
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  p { color: var(--ink-3); margin-bottom: 16px; font-size: 0.95rem; line-height: 1.8; }
+  strong { color: var(--ink-2); font-weight: 600; }
+  hr.rule { border: none; border-top: 1px solid var(--border); margin: 60px 0; }
+
+  .intro-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink-2);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    padding-bottom: 36px;
+    border-bottom: 2px solid var(--ink);
+    max-width: 820px;
+  }
+
+  /* GUIDE CARDS — main hub links */
+  .guide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 40px 0;
+  }
+
+  .guide-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 32px;
+    background: #fff;
+    text-decoration: none;
+    display: block;
+    transition: box-shadow 0.3s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .guide-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--terra);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .guide-card:hover {
+    box-shadow: 0 10px 48px rgba(28,25,23,0.12);
+    transform: translateY(-4px);
+  }
+
+  .guide-card:hover::after { transform: scaleX(1); }
+
+  .guide-card-icon { font-size: 2rem; display: block; margin-bottom: 16px; }
+
+  .guide-card-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 8px;
+  }
+
+  .guide-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .guide-card-desc {
+    font-size: 0.83rem;
+    color: var(--ink-3);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .guide-card-link {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--terra);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* TWO-COL CONTENT */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    margin: 40px 0;
+    align-items: start;
+  }
+
+  /* SEASONS TABLE */
+  .season-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 28px 0;
+  }
+
+  .season-card {
+    padding: 22px 18px;
+    border-right: 1px solid var(--border);
+  }
+  .season-card:last-child { border-right: none; }
+
+  .season-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .season-temps {
+    font-size: 0.75rem;
+    color: var(--terra);
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .season-desc {
+    font-size: 0.78rem;
+    color: var(--ink-3);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .season-card.best { background: var(--paper-2); }
+
+  /* TRANSPORT GRID */
+  .transport-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 28px 0;
+  }
+
+  .transport-item {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 18px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .transport-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+  .transport-name { font-weight: 600; font-size: 0.88rem; color: var(--ink); margin-bottom: 4px; }
+  .transport-desc { font-size: 0.78rem; color: var(--ink-3); line-height: 1.5; margin: 0; }
+
+  /* NEED TO KNOW TABLE */
+  .need-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin: 28px 0;
+    border: 1px solid var(--border);
+  }
+
+  .need-table tr { border-bottom: 1px solid var(--border-light); }
+  .need-table tr:last-child { border-bottom: none; }
+
+  .need-table td {
+    padding: 13px 18px;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+
+  .need-table td:first-child {
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+    width: 180px;
+    background: var(--paper-2);
+    border-right: 1px solid var(--border-light);
+    font-size: 0.82rem;
+  }
+
+  .need-table td:last-child { color: var(--ink-3); font-size: 0.85rem; }
+
+  /* GAMING CROSSLINK */
+  .gaming-section {
+    background: var(--ink);
+    border-radius: 4px;
+    padding: 36px;
+    margin: 48px 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .gaming-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terra-2);
+    margin-bottom: 10px;
+  }
+
+  .gaming-section h3 {
+    color: var(--paper);
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  .gaming-section p {
+    color: rgba(245,240,232,0.55);
+    font-size: 0.88rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .gaming-links { display: flex; flex-direction: column; gap: 10px; min-width: 200px; }
+
+  .gaming-link {
+    display: block;
+    background: rgba(245,240,232,0.07);
+    border: 1px solid rgba(245,240,232,0.12);
+    color: var(--paper);
+    text-decoration: none;
+    padding: 12px 18px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .gaming-link:hover { background: var(--terra); border-color: var(--terra); }
+  .gaming-link.primary { background: var(--terra); border-color: var(--terra); }
+  .gaming-link.primary:hover { background: var(--terra-2); }
+
+  /* FOOTER */
+  footer { background: var(--ink); padding: 56px 0 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(245,240,232,0.1);
+    margin-bottom: 32px;
+  }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--paper); margin-bottom: 12px; letter-spacing: 0.03em; }
+  .footer-logo em { color: var(--terra-2); font-style: italic; }
+  .footer-tagline { font-size: 0.8rem; color: rgba(245,240,232,0.4); line-height: 1.65; max-width: 240px; }
+  .footer-col-title { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terra-2); margin-bottom: 16px; }
+  .footer-col a { display: block; font-size: 0.82rem; color: rgba(245,240,232,0.5); text-decoration: none; margin-bottom: 8px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--paper); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: rgba(245,240,232,0.25); }
+  .footer-legal { max-width: 600px; line-height: 1.6; }
+
+  @media (max-width: 1000px) {
+    .hero-content { grid-template-columns: 1fr; gap: 40px; }
+    .hero-panel { display: none; }
+    nav { display: none; }
+    .guide-grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    .season-grid { grid-template-columns: 1fr 1fr; }
+    .transport-grid { grid-template-columns: 1fr; }
+    .gaming-section { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content { animation: fadeUp 0.8s ease both; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <a href="/" class="logo">Ontario's <em>Best</em></a>
+    <nav>
+      <a href="/hotels/">Hotels</a>
+      <a href="/things-to-do/toronto/">Things To Do</a>
+      <a href="/toronto/" class="active">Toronto Guide</a>
+      <div class="nav-divider"></div>
+      <a href="/online-casinos/">Casinos</a>
+      <a href="/sports-betting/">Sports Betting</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-decoration"></div>
+  <div class="hero-vertical-type">Ontario's Best · Toronto · 2026 Edition</div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-city-label">Complete City Guide · 2026</div>
+      <h1>Toronto</h1>
+      <p class="hero-subtitle">Canada's largest city. A skyline that rivals New York, neighbourhoods that feel like villages, 180 nationalities at the table — and in 2026, host city to the FIFA World Cup.</p>
+    </div>
+    <div class="hero-panel">
+      <div class="panel-title">Toronto at a Glance</div>
+      <div class="fact-row"><span class="fact-label">Population</span><span class="fact-val">2.9M city · 6.4M metro</span></div>
+      <div class="fact-row"><span class="fact-label">Province</span><span class="fact-val">Ontario, Canada</span></div>
+      <div class="fact-row"><span class="fact-label">Currency</span><span class="fact-val">Canadian Dollar (CAD)</span></div>
+      <div class="fact-row"><span class="fact-label">Language</span><span class="fact-val">English (100+ others spoken)</span></div>
+      <div class="fact-row"><span class="fact-label">Time Zone</span><span class="fact-val">ET (UTC−5/−4)</span></div>
+      <div class="fact-row"><span class="fact-label">Airport</span><span class="fact-val">Pearson (YYZ) · 25 min</span></div>
+      <div class="fact-row"><span class="fact-label">Gambling Age</span><span class="fact-val">19+</span></div>
+      <div class="fact-row"><span class="fact-label">Best Season</span><span class="fact-val">June – October</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="page-wrap">
+
+  <p class="intro-text">Toronto is, in many ways, the most underrated major city in North America. Overshadowed internationally by New York and Montreal, it quietly holds world-class museums, a dining scene of genuine global ambition, neighbourhoods of extraordinary character, and in 2026, a sporting calendar that would make any city envious. This is everything you need to know before you go.</p>
+
+  <!-- GUIDE CARDS -->
+  <div class="section-rule"><span class="section-eyebrow">Where to Start</span></div>
+  <h2>Your Complete <em>Toronto</em> Guide</h2>
+  <p>Everything you need — curated, honest, and updated for 2026.</p>
+
+  <div class="guide-grid">
+    <a href="/hotels/" class="guide-card">
+      <span class="guide-card-icon">🏨</span>
+      <div class="guide-card-label">Accommodation</div>
+      <div class="guide-card-title">Best Hotels in Ontario 2026</div>
+      <p class="guide-card-desc">From Forbes Five-Star luxury on the waterfront to design-led boutiques in Yorkville — our ranked guide to where to stay, with honest assessments and best-rate booking links.</p>
+      <span class="guide-card-link">Read the Hotel Guide →</span>
+    </a>
+    <a href="/things-to-do/toronto/" class="guide-card">
+      <span class="guide-card-icon">🗺</span>
+      <div class="guide-card-label">Attractions & Experiences</div>
+      <div class="guide-card-title">Best Things To Do in Toronto</div>
+      <p class="guide-card-desc">CN Tower, ROM, Ripley's Aquarium, Casa Loma, Distillery District, and the unmissable 2026-specific experiences — FIFA matches, WNBA Tempo, Canada's first art park.</p>
+      <span class="guide-card-link">Read Things To Do →</span>
+    </a>
+  </div>
+
+  <hr class="rule">
+
+  <!-- WHEN TO VISIT -->
+  <div class="section-rule"><span class="section-eyebrow">Planning Your Trip</span></div>
+  <h2>When to Visit <em>Toronto</em></h2>
+  <p>Toronto has four proper seasons, each with its own character. 2026 is an unusual year — the FIFA World Cup window (June–July) will make summer busier and more expensive than normal.</p>
+
+  <div class="season-grid">
+    <div class="season-card">
+      <div class="season-name">Winter</div>
+      <span class="season-temps">Dec – Feb · −10°C to 0°C</span>
+      <p class="season-desc">Cold. The Distillery Christmas Market and Nathan Phillips Square ice rink are highlights. Lowest hotel rates. Indoor culture — ROM, AGO, Hockey Hall of Fame — comes into its own.</p>
+    </div>
+    <div class="season-card">
+      <div class="season-name">Spring</div>
+      <span class="season-temps">Mar – May · 5°C to 18°C</span>
+      <p class="season-desc">Toronto wakes up. Cherry blossoms in High Park draw crowds in late April. Shoulder-season pricing before summer peaks. Toronto Maple Leafs playoffs drive hotel spikes if the team runs deep.</p>
+    </div>
+    <div class="season-card best">
+      <div class="season-name">Summer ★</div>
+      <span class="season-temps">Jun – Aug · 20°C to 30°C</span>
+      <p class="season-desc">Peak season. Waterfront opens up, festivals run constantly, the city is at maximum energy. FIFA World Cup in June, Toronto Pride late June, CNE in August. Book well ahead — especially in 2026.</p>
+    </div>
+    <div class="season-card">
+      <div class="season-name">Autumn</div>
+      <span class="season-temps">Sep – Nov · 5°C to 18°C</span>
+      <p class="season-desc">The sweet spot. Fall colours in the ravines and High Park are stunning. Post-summer pricing, comfortable temperatures, the Toronto International Film Festival in September, and the city to yourself relative to peak.</p>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- GETTING AROUND -->
+  <div class="section-rule"><span class="section-eyebrow">Getting Around</span></div>
+  <h2>Transport in <em>Toronto</em></h2>
+  <p>Toronto is large but navigable. The TTC covers most tourist areas well. The single most useful purchase is a PRESTO card — works across TTC and GO Transit and saves you the hassle of exact change.</p>
+
+  <div class="transport-grid">
+    <div class="transport-item">
+      <div class="transport-icon">🚇</div>
+      <div>
+        <div class="transport-name">TTC Subway & Streetcar</div>
+        <p class="transport-desc">Toronto's primary transit network. Four subway lines plus an extensive streetcar network (particularly useful downtown on King and Queen Streets). PRESTO card is cheapest. Single fare $3.30 CAD.</p>
+      </div>
+    </div>
+    <div class="transport-item">
+      <div class="transport-icon">🚆</div>
+      <div>
+        <div class="transport-name">UP Express — Airport Train</div>
+        <p class="transport-desc">Pearson Airport to Union Station in 25 minutes. Departs every 15 minutes. Far superior to a taxi or rideshare in traffic. $9.10 with PRESTO, $12.35 with a credit card. The right way to arrive in Toronto.</p>
+      </div>
+    </div>
+    <div class="transport-item">
+      <div class="transport-icon">🚌</div>
+      <div>
+        <div class="transport-name">GO Transit — Regional Rail</div>
+        <p class="transport-desc">Connects Toronto to Hamilton, Niagara Falls, Barrie, and surrounding commuter cities. Essential for day trips to Niagara (approx. 2 hrs). PRESTO card works on GO. Book in advance for popular routes.</p>
+      </div>
+    </div>
+    <div class="transport-item">
+      <div class="transport-icon">🚇</div>
+      <div>
+        <div class="transport-name">Eglinton Crosstown LRT (2026)</div>
+        <p class="transport-desc">Toronto's long-awaited east-west rapid transit corridor opens in 2026. 19km connecting Scarborough to Mount Dennis. Transforms transit access to midtown including the AGO neighbourhood.</p>
+      </div>
+    </div>
+    <div class="transport-item">
+      <div class="transport-icon">🚗</div>
+      <div>
+        <div class="transport-name">Rideshare (Uber / Lyft)</div>
+        <p class="transport-desc">Widely available and affordable for cross-town trips. Avoid downtown core during rush hour — traffic is severe. Useful for late-night returns and airport runs if UP Express timing doesn't work.</p>
+      </div>
+    </div>
+    <div class="transport-item">
+      <div class="transport-icon">⛴</div>
+      <div>
+        <div class="transport-name">Toronto Island Ferry</div>
+        <p class="transport-desc">A $9 CAD return ferry from Jack Layton Ferry Terminal takes you to Toronto Island Park — 560 acres of green space and beaches with spectacular skyline views back at the city. Summer only (May–October peak).</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- NEED TO KNOW -->
+  <div class="section-rule"><span class="section-eyebrow">Before You Go</span></div>
+  <h2>Need to <em>Know</em></h2>
+
+  <table class="need-table">
+    <tr><td>Currency</td><td>Canadian Dollar (CAD). Credit cards accepted almost everywhere. Major US cards work seamlessly. Exchange at your bank before travel for best rates — airport exchanges charge a significant premium.</td></tr>
+    <tr><td>Language</td><td>English. Toronto is Canada's most linguistically diverse city — over 180 languages spoken. You'll encounter Mandarin, Cantonese, Tamil, Punjabi, Italian, and Portuguese in various neighbourhoods, but English is universal.</td></tr>
+    <tr><td>Tipping</td><td>15–20% at restaurants, bars, and taxis is standard and expected. Not optional in Canadian restaurant culture. Pre-tax is technically correct; most people tip on the post-tax total. Debit/credit tip prompts are ubiquitous.</td></tr>
+    <tr><td>Legal Gambling Age</td><td>19 for casinos, sports betting, and online gambling. Ontario has a fully regulated iGaming market — only bet at AGCO-licensed operators. See our casino and sports betting guides for details.</td></tr>
+    <tr><td>Legal Drinking Age</td><td>19. Liquor is sold at LCBO stores, Beer Store locations, and licensed restaurants and bars. Some grocery stores now sell alcohol. Last call at bars is 2am.</td></tr>
+    <tr><td>Taxes</td><td>13% HST (Harmonized Sales Tax) applies to most purchases in Ontario, including hotel stays and restaurant meals. Prices displayed on menus and shelves are pre-tax — the final bill will be higher.</td></tr>
+    <tr><td>Electricity</td><td>120V / 60Hz. Type A/B plugs (same as US). European visitors need an adapter. Most modern hotel rooms have USB charging ports.</td></tr>
+    <tr><td>Emergency Services</td><td>911 for police, fire, and ambulance. Non-emergency police: 416-808-2222. Visitors from outside Canada are covered by their travel insurance — confirm medical coverage before travelling.</td></tr>
+  </table>
+
+  <hr class="rule">
+
+  <!-- GAMING CROSSLINK -->
+  <div class="gaming-section">
+    <div>
+      <div class="gaming-label">Regulated iGaming · Ontario</div>
+      <h3>Ontario's Legal Online Gambling Guide</h3>
+      <p>Ontario has one of the most developed regulated online gambling markets in North America — launched in 2022 under the AGCO. Whether you're looking for online casinos, sports betting on Toronto's teams, or poker, our iGaming section covers every licensed operator with independent, AGCO-compliant reviews. No bonus promotion — just honest rankings.</p>
+    </div>
+    <div class="gaming-links">
+      <a href="/online-casinos/" class="gaming-link primary">🎰 Best Online Casinos →</a>
+      <a href="/sports-betting/" class="gaming-link">🏆 Sports Betting Sites →</a>
+      <a href="/poker/" class="gaming-link">♠️ Online Poker Ontario →</a>
+      <a href="/prediction-markets/" class="gaming-link">📊 Prediction Markets →</a>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- TORONTO NEIGHBOURHOODS BRIEF -->
+  <div class="section-rule"><span class="section-eyebrow">City Anatomy</span></div>
+  <h2>Understanding <em>Toronto's</em> Neighbourhoods</h2>
+
+  <div class="two-col">
+    <div>
+      <h3>Downtown & Entertainment District</h3>
+      <p>The CN Tower, Ripley's Aquarium, Rogers Centre, and Scotiabank Arena anchor this dense, tourist-heavy zone. Hotel options range from luxury (Ritz-Carlton, St. Regis) to mid-range. Best base for short stays or those focused on major attractions and sports events.</p>
+
+      <h3>Yorkville</h3>
+      <p>Toronto's upscale village. Boutiques, galleries, the ROM, and the city's best concentration of fine dining and luxury hotels (Four Seasons, Hazelton, Kimpton). Quieter than downtown — the right choice for leisure-focused visitors who want refinement over convenience.</p>
+
+      <h3>The Annex</h3>
+      <p>University of Toronto's neighbourhood — bookshops, cafes, the ROM, and the kind of intellectual energy that cities pay millions to cultivate. Bloor Street's retail corridor connects The Annex to Yorkville heading east.</p>
+    </div>
+    <div>
+      <h3>Kensington Market & Chinatown</h3>
+      <p>The most concentrated expression of Toronto's diversity. Vintage shops, international food stalls, independent roasters, and the AGO nearby. Chaotic, vibrant, and completely authentic. The Ace Hotel is here for visitors who want to feel it, not just observe it.</p>
+
+      <h3>Distillery District</h3>
+      <p>Perfectly preserved Victorian industrial architecture converted into one of North America's best arts and entertainment precincts. Galleries, boutiques, award-winning restaurants, and the city's best Christmas Market (December). A must-visit regardless of your interests.</p>
+
+      <h3>The Waterfront</h3>
+      <p>Lake Ontario's north shore — 46km of continuous waterfront parks, trails, and marinas. Toronto Islands are accessible by a 10-minute ferry. Best in summer. Hotel X Toronto and 1 Hotel are the standout accommodation options in this zone.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Ontario's <em>Best</em></div>
+        <p class="footer-tagline">Ontario's definitive guide to travel, entertainment, and regulated gaming — independently written and editorially honest.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Travel</div>
+        <a href="/hotels/">Best Hotels Ontario</a>
+        <a href="/things-to-do/toronto/">Things To Do Toronto</a>
+        <a href="/toronto/">Toronto City Guide</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Gaming</div>
+        <a href="/online-casinos/">Online Casinos</a>
+        <a href="/sports-betting/">Sports Betting</a>
+        <a href="/poker/">Online Poker</a>
+        <a href="/prediction-markets/">Prediction Markets</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2026 ontariosbest.com · Independent travel and iGaming guide for Ontario, Canada · Not affiliated with Tourism Ontario or any government body</p>
+      <div style="display:flex; gap:20px">
+        <a href="/about/" style="color:rgba(245,240,232,0.25); text-decoration:none; font-size:0.75rem">About</a>
+        <a href="/privacy/" style="color:rgba(245,240,232,0.25); text-decoration:none; font-size:0.75rem">Privacy</a>
+        <a href="/contact/" style="color:rgba(245,240,232,0.25); text-decoration:none; font-size:0.75rem">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
