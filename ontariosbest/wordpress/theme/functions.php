@@ -384,6 +384,22 @@ function ob_sponsored_badge( $post_id = null ) {
 }
 
 // -------------------------------------------------------
+// Route listing CPT archives to archive-listing.php
+// -------------------------------------------------------
+
+add_filter( 'template_include', 'ontariosbest_listing_archive_template' );
+function ontariosbest_listing_archive_template( $template ) {
+	$listing_types = array( 'restaurant', 'travel', 'entertainment', 'service', 'shopping' );
+	if ( is_post_type_archive( $listing_types ) ) {
+		$custom = locate_template( 'archive-listing.php' );
+		if ( $custom ) {
+			return $custom;
+		}
+	}
+	return $template;
+}
+
+// -------------------------------------------------------
 // Remove WordPress version from head (security)
 // -------------------------------------------------------
 
