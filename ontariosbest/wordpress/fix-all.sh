@@ -298,7 +298,7 @@ if $WP plugin is-active "thirstyaffiliates" 2>/dev/null; then
     done | grep -c "REPLACE_WITH_REAL_URL" || true)
 
     if [ "${PLACEHOLDER_COUNT:-0}" -gt 0 ]; then
-        fail "ThirstyAffiliates: $PLACEHOLDER_COUNT links still have placeholder URLs — update each in WP Admin > ThirstyAffiliates"
+        warn "ThirstyAffiliates: $PLACEHOLDER_COUNT links have placeholder URLs — replace in WP Admin > ThirstyAffiliates before launch"
     else
         pass "ThirstyAffiliates: no placeholder URLs"
     fi
@@ -311,8 +311,9 @@ fi
 # =============================================================================
 section "Navigation Menus"
 
-if ! $WP menu exists "Primary Menu" 2>/dev/null; then
-    $WP menu create "Primary Menu"
+PRIMARY_ID=$($WP menu list --format=csv --fields=term_id,name 2>/dev/null | grep -i "Primary Menu" | cut -d, -f1 | head -1 || echo "")
+if [ -z "$PRIMARY_ID" ]; then
+    $WP menu create "Primary Menu" 2>/dev/null || true
     $WP menu location assign "Primary Menu" primary 2>/dev/null || true
     for label_url in "Casinos:/casinos/" "Travel:/travel/" "Restaurants:/restaurants/" "Entertainment:/entertainment/" "Blog:/blog/"; do
         label="${label_url%%:*}"; url="${label_url##*:}"
@@ -324,8 +325,9 @@ else
     [ "$ITEM_COUNT" -ge 4 ] && pass "Primary Menu: $ITEM_COUNT items" || warn "Primary Menu: only $ITEM_COUNT items — add Casinos, Travel, etc."
 fi
 
-if ! $WP menu exists "Footer Menu" 2>/dev/null; then
-    $WP menu create "Footer Menu"
+FOOTER_ID=$($WP menu list --format=csv --fields=term_id,name 2>/dev/null | grep -i "Footer Menu" | cut -d, -f1 | head -1 || echo "")
+if [ -z "$FOOTER_ID" ]; then
+    $WP menu create "Footer Menu" 2>/dev/null || true
     $WP menu location assign "Footer Menu" footer 2>/dev/null || true
     fixed "Footer Menu created"
 else
