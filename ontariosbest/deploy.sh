@@ -134,6 +134,7 @@ FREE_PLUGINS=(
     "imagify"
     "query-monitor"
     "redirection"
+    "wp-super-cache"
 )
 
 for plugin in "${FREE_PLUGINS[@]}"; do
@@ -145,7 +146,7 @@ for plugin in "${FREE_PLUGINS[@]}"; do
     fi
 done
 
-warn "Premium plugins (Rank Math Pro, ACF Pro, ThirstyAffiliates Pro, WP Rocket, Kadence Blocks Pro) must be installed manually via WordPress admin."
+warn "Premium plugins (Rank Math Pro, ACF Pro, ThirstyAffiliates Pro) must be installed manually via WordPress admin."
 
 # ---------------------------------------------------------
 # 7. Import ACF field groups
@@ -358,12 +359,12 @@ echo -e "  ${GREEN}Deployment Complete!${NC}"
 echo "=================================================="
 echo ""
 echo "Next steps:"
-echo "  1. Install premium plugins (Rank Math Pro, ACF Pro, ThirstyAffiliates Pro, WP Rocket, Kadence Blocks Pro) via WP admin"
+echo "  1. Install premium plugins (Rank Math Pro, ACF Pro, ThirstyAffiliates Pro) via WP admin"
 echo "  2. Import ACF field groups: ACF > Tools > Import > upload acf/casino-fields.json and acf/listing-fields.json"
 echo "  3. Add affiliate links in ThirstyAffiliates"
 echo "  4. Configure Rank Math Pro (connect Search Console, set schema types)"
 echo "  5. Add content: 12 casino reviews, 8 listings, 5 blog posts"
-echo "  6. Configure WP Rocket LAST"
+echo "  6. Configure WP Super Cache LAST"
 echo "  7. Run: wp option update blogpublic 1 --allow-root (to enable indexing)"
 echo ""
 echo "  Site URL: $SITE_URL"
