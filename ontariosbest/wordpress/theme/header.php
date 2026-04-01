@@ -66,45 +66,25 @@
 				<span style="font-size:11px;background:#1a1a1a;color:#aaa;padding:4px 10px;border-radius:4px;font-weight:600;">19+</span>
 			<?php endif; ?>
 			<!-- Mobile menu toggle -->
-			<button id="ob-mobile-toggle"
-			        aria-label="Toggle menu"
-			        aria-expanded="false"
-			        style="display:none;background:none;border:1px solid var(--ob-border);border-radius:6px;padding:6px 10px;cursor:pointer;font-size:18px;line-height:1;">
-				☰
+			<button class="ob-hamburger" id="ob-mobile-toggle" aria-label="Open menu" aria-expanded="false">
+				<span></span><span></span><span></span>
 			</button>
 		</div>
 
 	</div>
 
-	<!-- Mobile nav drawer -->
-	<div id="ob-mobile-nav" style="display:none;border-top:1px solid var(--ob-border);background:#fff;">
-		<div class="ast-container" style="padding-top:16px;padding-bottom:16px;">
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'primary',
-				'container'      => false,
-				'menu_class'     => 'ob-mobile-menu',
-				'fallback_cb'    => function() {
-					echo '<ul class="ob-mobile-menu">';
-					$items = array(
-						'Casinos'       => '/casinos/',
-						'Travel'        => '/travel/',
-						'Restaurants'   => '/restaurants/',
-						'Entertainment' => '/entertainment/',
-						'Services'      => '/services/',
-						'Blog'          => '/blog/',
-						'Advertise'     => '/advertise/',
-					);
-					foreach ( $items as $label => $url ) {
-						echo '<li><a href="' . esc_url( home_url( $url ) ) . '">' . esc_html( $label ) . '</a></li>';
-					}
-					echo '</ul>';
-				},
-			) );
-			?>
-		</div>
-	</div>
 </header>
+
+<nav class="ob-nav-overlay" id="ob-nav-overlay" aria-label="Mobile navigation">
+  <button class="ob-hamburger" id="ob-nav-close" aria-label="Close menu">
+    <span></span><span></span><span></span>
+  </button>
+  <a href="<?php echo esc_url( home_url( '/casinos/' ) ); ?>">Casinos</a>
+  <a href="<?php echo esc_url( home_url( '/best-of/' ) ); ?>">Best of Ontario</a>
+  <a href="<?php echo esc_url( home_url( '/casinos/compare/' ) ); ?>">Compare</a>
+  <a href="<?php echo esc_url( home_url( '/travel/' ) ); ?>">Travel</a>
+  <a href="<?php echo esc_url( home_url( '/responsible-gambling/' ) ); ?>" style="color:var(--ob-primary)">19+ | Play Responsibly</a>
+</nav>
 
 <style>
 /* -------------------------------------------------------
@@ -172,27 +152,6 @@
 	font-weight: 500;
 }
 
-/* Mobile nav */
-.ob-mobile-menu {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-.ob-mobile-menu li a {
-	display: block;
-	padding: 10px 0;
-	font-size: 16px;
-	font-weight: 600;
-	color: var(--ob-text);
-	text-decoration: none;
-	border-bottom: 1px solid var(--ob-border);
-}
-
-.ob-mobile-menu li:last-child a {
-	border-bottom: none;
-}
-
 /* Show advertise link on larger screens */
 @media (min-width: 1024px) {
 	.ob-header-advertise {
@@ -200,30 +159,43 @@
 	}
 }
 
-/* Hide desktop nav and show mobile toggle on small screens */
+/* Hide desktop nav on small screens — hamburger visibility handled by style.css */
 @media (max-width: 900px) {
 	#ob-primary-nav {
 		display: none;
-	}
-	#ob-mobile-toggle {
-		display: block !important;
 	}
 }
 </style>
 
 <script>
-// Mobile nav toggle
 (function() {
-	var toggle = document.getElementById('ob-mobile-toggle');
-	var nav    = document.getElementById('ob-mobile-nav');
-	if (toggle && nav) {
-		toggle.addEventListener('click', function() {
-			var open = nav.style.display !== 'none';
-			nav.style.display = open ? 'none' : 'block';
-			toggle.setAttribute('aria-expanded', String(!open));
-			toggle.textContent = open ? '☰' : '✕';
-		});
-	}
+  var toggle = document.getElementById('ob-mobile-toggle');
+  var close  = document.getElementById('ob-nav-close');
+  if (!toggle || !close) return;
+
+  function openNav() {
+    document.body.classList.add('nav-open');
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+  function closeNav() {
+    document.body.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', function() {
+    document.body.classList.contains('nav-open') ? closeNav() : openNav();
+  });
+  close.addEventListener('click', closeNav);
+
+  // Close when any overlay link is tapped
+  document.querySelectorAll('.ob-nav-overlay a').forEach(function(a) {
+    a.addEventListener('click', closeNav);
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeNav();
+  });
 })();
 </script>
 
