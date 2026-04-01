@@ -26,6 +26,20 @@ Text Domain:  ontariosbest
 	--ob-text:       #2d2d2d;
 	--ob-border:     #e0e0e0;
 	--ob-radius:     8px;
+
+	/* Breakpoints */
+	--bp-sm: 600px;
+	--bp-md: 768px;
+	--bp-lg: 1024px;
+
+	/* Spacing tokens */
+	--space-xs:        8px;
+	--space-sm:        16px;
+	--space-md:        24px;
+	--space-lg:        40px;
+	--space-xl:        64px;
+	--container-max:   1200px;
+	--sidebar-width:   260px;
 }
 
 /* -------------------------------------------------------
@@ -384,3 +398,185 @@ a:hover {
 	font-size: 13px;
 	color: #888;
 }
+
+/* -------------------------------------------------------
+   1c. Fluid Grid System
+------------------------------------------------------- */
+
+.ob-grid { display: grid; gap: var(--space-md); }
+.ob-grid--2 { grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); }
+.ob-grid--3 { grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); }
+
+/* -------------------------------------------------------
+   1d. Utility Classes
+------------------------------------------------------- */
+
+.ob-stack  { display: flex; flex-direction: column; }
+.ob-cluster { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+.ob-center { margin-inline: auto; max-width: var(--container-max); padding-inline: var(--space-sm); }
+
+/* -------------------------------------------------------
+   1e. Casino Card — Mobile (stacked at ≤768px)
+------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .ob-casino-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-sm);
+  }
+  .ob-casino-card__logo { width: 80px; margin: 0 auto var(--space-xs); }
+  .ob-casino-card__cta  { width: 100%; }
+}
+
+/* -------------------------------------------------------
+   1f. Review Layout (two-column → stacked at ≤768px)
+------------------------------------------------------- */
+
+.ob-review-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+.ob-review-layout__content { flex: 1; min-width: 0; }
+.ob-review-layout__sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  position: sticky;
+  top: 24px;
+}
+@media (max-width: 768px) {
+  .ob-review-layout { flex-direction: column; }
+  .ob-review-layout__sidebar {
+    width: 100%;
+    position: static;
+  }
+}
+
+/* -------------------------------------------------------
+   1g. Sticky CTA Bar (mobile only, fixed bottom)
+------------------------------------------------------- */
+
+.ob-sticky-cta {
+  display: none;
+}
+@media (max-width: 768px) {
+  .ob-sticky-cta {
+    display: flex;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 900;
+    background: var(--ob-primary);
+    padding: var(--space-sm) var(--space-md);
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+  }
+  .ob-sticky-cta.is-hidden { transform: translateY(100%); }
+  .ob-sticky-cta strong { color: var(--ob-dark); font-size: 14px; display: block; }
+  .ob-sticky-cta span { color: var(--ob-dark); font-size: 12px; opacity: 0.8; }
+}
+
+/* -------------------------------------------------------
+   1h. Full-Screen Overlay Nav
+------------------------------------------------------- */
+
+.ob-nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10,10,20,0.97);
+  z-index: 1000;
+  flex-direction: column;
+  padding: var(--space-lg) var(--space-md);
+  overflow-y: auto;
+}
+body.nav-open .ob-nav-overlay { display: flex; }
+body.nav-open { overflow: hidden; }
+
+.ob-nav-overlay a {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid #222;
+  text-decoration: none;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.ob-nav-overlay a:hover { color: var(--ob-primary); }
+.ob-nav-overlay a:last-child { border-bottom: none; }
+
+/* Animated hamburger — 3 bars → x */
+.ob-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+}
+.ob-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  transition: transform 0.2s, opacity 0.2s;
+  border-radius: 2px;
+}
+@media (max-width: 900px) {
+  .ob-hamburger { display: flex; }
+}
+body.nav-open .ob-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+body.nav-open .ob-hamburger span:nth-child(2) { opacity: 0; }
+body.nav-open .ob-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Close button inside overlay */
+.ob-nav-overlay .ob-hamburger {
+  display: flex;
+  align-self: flex-end;
+  margin-bottom: var(--space-sm);
+}
+
+/* -------------------------------------------------------
+   1i. Form Responsiveness
+------------------------------------------------------- */
+
+.ob-search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  max-width: 560px;
+}
+@media (max-width: 480px) {
+  .ob-search-form input  { width: 100%; border-radius: 6px 6px 0 0; flex: none; }
+  .ob-search-form button { width: 100%; border-radius: 0 0 6px 6px; }
+}
+.ob-newsletter-form {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 440px;
+  margin: 0 auto;
+  gap: 0;
+}
+@media (max-width: 480px) {
+  .ob-newsletter-form input  { width: 100%; flex: none; }
+  .ob-newsletter-form button { width: 100%; }
+}
+
+/* -------------------------------------------------------
+   1j. Score Row Fix
+------------------------------------------------------- */
+
+.ob-score-label { width: 40%; flex-shrink: 0; font-size: 13px; }
+
+/* -------------------------------------------------------
+   1k. Hero Responsive Padding
+------------------------------------------------------- */
+
+.ob-hero { padding: clamp(40px, 8vw, 80px) 0 clamp(32px, 6vw, 64px); }
