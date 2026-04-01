@@ -9,7 +9,7 @@ get_header();
 <!-- =====================================================
      HERO
 ====================================================== -->
-<section class="ob-hero" style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);padding:80px 0 64px;text-align:center;color:#fff;">
+<section class="ob-hero" style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);text-align:center;color:#fff;">
 	<div class="ast-container">
 		<p style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ob-primary);margin:0 0 12px;font-weight:600;">Ontario's #1 Discovery Guide</p>
 		<h1 style="font-size:clamp(36px,5vw,60px);font-weight:900;color:#fff;margin:0 0 16px;line-height:1.1;">
@@ -20,7 +20,7 @@ get_header();
 		</p>
 
 		<!-- Search Bar -->
-		<form method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" style="max-width:560px;margin:0 auto;display:flex;gap:0;border-radius:var(--ob-radius);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.4);">
+		<form method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="ob-search-form" style="margin:0 auto;gap:0;border-radius:var(--ob-radius);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.4);">
 			<input
 				type="search"
 				name="s"
@@ -145,6 +145,9 @@ get_header();
 			'order'          => 'DESC',
 		) );
 		$rank = 1;
+		?>
+		<div class="ob-casino-list">
+		<?php
 		while ( $top_casinos->have_posts() ) : $top_casinos->the_post();
 			$rating   = ob_casino_meta( '_casino_overall_rating' );
 			$bonus    = ob_casino_meta( '_casino_welcome_bonus' );
@@ -180,6 +183,7 @@ get_header();
 		endwhile;
 		wp_reset_postdata();
 		?>
+		</div><!-- .ob-casino-list -->
 
 		<p style="font-size:12px;color:#aaa;margin-top:12px;">19+ | Please gamble responsibly. <a href="/responsible-gambling/" style="color:#aaa;">Learn more</a></p>
 	</div>
@@ -210,7 +214,7 @@ if ( $featured_query->have_posts() ) :
 				<p style="color:#666;margin:0;font-size:14px;">Top-rated picks across Ontario</p>
 			</div>
 		</div>
-		<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+		<div class="ob-grid ob-grid--2">
 		<?php while ( $featured_query->have_posts() ) : $featured_query->the_post();
 			$rating  = ob_listing_meta( '_listing_overall_rating' );
 			$address = ob_listing_meta( '_listing_address' );
@@ -255,7 +259,7 @@ if ( $featured_query->have_posts() ) :
 			<a href="/blog/" style="font-size:14px;color:var(--ob-primary);font-weight:600;text-decoration:none;">View All →</a>
 		</div>
 
-		<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
+		<div class="ob-grid ob-grid--2">
 		<?php
 		$latest = new WP_Query( array(
 			'post_type'      => 'post',
@@ -319,7 +323,7 @@ if ( $featured_query->have_posts() ) :
 		<?php if ( function_exists( 'mc4wp_show_form' ) ) : ?>
 			<?php mc4wp_show_form(); ?>
 		<?php else : ?>
-			<form style="max-width:440px;margin:0 auto;display:flex;gap:0;border-radius:var(--ob-radius);overflow:hidden;">
+			<form class="ob-newsletter-form" style="border-radius:var(--ob-radius);overflow:hidden;">
 				<input type="email" placeholder="Your email address" style="flex:1;padding:14px 18px;font-size:15px;border:none;outline:none;">
 				<button type="submit" style="background:var(--ob-primary);color:#fff;border:none;padding:14px 24px;font-weight:700;cursor:pointer;">Subscribe</button>
 			</form>
