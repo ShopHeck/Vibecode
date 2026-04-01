@@ -9,23 +9,34 @@ Text Domain:  ontariosbest
 */
 
 /* -------------------------------------------------------
-   Brand Colors
-   Primary:    #e8a020  (Ontario gold/amber)
-   Dark:       #1a1a2e  (Deep navy)
-   Accent:     #c0392b  (Red — casino/action)
-   Light bg:   #f9f9f9
-   Text:       #2d2d2d
+   Design System — synced to live site (ontariosbest.com)
+   Gold:        #C9A84C  (champagne gold)
+   Gold light:  #E8C97A  (highlight)
+   Dark bg:     #0D0D0D  (near-black)
+   Card bg:     #1F1F1F
+   Text:        #E8E8E0  (warm off-white)
+   Fonts:       Playfair Display (headings) + DM Sans (body)
 ------------------------------------------------------- */
 
 :root {
-	--ob-primary:    #e8a020;
-	--ob-primary-dk: #c8880a;
-	--ob-dark:       #1a1a2e;
-	--ob-accent:     #c0392b;
-	--ob-light:      #f9f9f9;
-	--ob-text:       #2d2d2d;
-	--ob-border:     #e0e0e0;
-	--ob-radius:     8px;
+	--ob-primary:    #C9A84C;
+	--ob-primary-dk: #B8973D;
+	--ob-gold-light: #E8C97A;
+	--ob-gold-dim:   rgba(201,168,76,0.12);
+	--ob-gold-border:rgba(201,168,76,0.22);
+	--ob-dark:       #0D0D0D;
+	--ob-dark-2:     #111111;
+	--ob-dark-3:     #181818;
+	--ob-dark-4:     #1F1F1F;
+	--ob-dark-5:     #282828;
+	--ob-accent:     #2ECC71;
+	--ob-accent-dim: rgba(46,204,113,0.10);
+	--ob-light:      #1F1F1F;
+	--ob-text:       #E8E8E0;
+	--ob-text-muted: #979792;
+	--ob-text-soft:  #B0B0A8;
+	--ob-border:     rgba(201,168,76,0.22);
+	--ob-radius:     2px;
 
 	/* Breakpoints */
 	/* Breakpoint reference values — CSS custom props cannot be used inside @media queries. Use hardcoded px values in queries (see breakpoint scale below). */
@@ -49,7 +60,13 @@ Text Domain:  ontariosbest
 
 body {
 	color: var(--ob-text);
-	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	background-color: var(--ob-dark);
+	font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Playfair Display', Georgia, serif;
+	color: var(--ob-text);
 }
 
 a {
@@ -68,11 +85,13 @@ a:hover {
 .ob-btn-primary {
 	display: inline-block;
 	background: var(--ob-primary);
-	color: #fff !important;
+	color: var(--ob-dark) !important;
 	padding: 12px 28px;
 	border-radius: var(--ob-radius);
-	font-weight: 700;
-	font-size: 15px;
+	font-weight: 600;
+	font-size: 13px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
 	text-decoration: none;
 	transition: background 0.2s ease;
 	border: none;
@@ -82,7 +101,16 @@ a:hover {
 .ob-btn:hover,
 .ob-btn-primary:hover {
 	background: var(--ob-primary-dk);
-	color: #fff !important;
+	color: var(--ob-dark) !important;
+}
+
+.ob-btn--outline {
+	background: transparent;
+	color: var(--ob-primary) !important;
+	border: 1px solid var(--ob-gold-border);
+}
+.ob-btn--outline:hover {
+	background: var(--ob-gold-dim);
 }
 
 .ob-btn-outline {
@@ -101,6 +129,15 @@ a:hover {
 .ob-btn-outline:hover {
 	background: var(--ob-primary);
 	color: #fff !important;
+}
+
+/* -------------------------------------------------------
+   Header
+------------------------------------------------------- */
+
+#ob-header {
+	background: var(--ob-dark-2) !important;
+	border-bottom: 1px solid var(--ob-gold-border);
 }
 
 /* -------------------------------------------------------

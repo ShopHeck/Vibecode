@@ -7,6 +7,14 @@
 // Enqueue parent and child theme styles
 add_action( 'wp_enqueue_scripts', 'ontariosbest_enqueue_styles' );
 function ontariosbest_enqueue_styles() {
+	// Google Fonts — Playfair Display + DM Sans
+	wp_enqueue_style(
+		'ontariosbest-fonts',
+		'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap',
+		array(),
+		null
+	);
+
 	wp_enqueue_style(
 		'astra-child-theme-css',
 		get_stylesheet_directory_uri() . '/style.css',
