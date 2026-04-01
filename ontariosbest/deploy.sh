@@ -223,11 +223,13 @@ DISC_ID=$(create_page "Affiliate Disclosure" "affiliate-disclosure" "page-legal.
 ADV_ID=$(create_page "Advertise" "advertise" "page-advertise.php" "")
 BESTOF_ID=$(create_page "Best Of Ontario" "best-of" "" "<p>Explore Ontario's best — curated and ranked by our experts.</p>")
 
-# Set home page as front page
-if [ -n "$HOME_ID" ]; then
-    $WP option update page_on_front "$HOME_ID"
+# Set home page as front page — always run, fetch ID if page already existed
+FRONT_ID=$($WP post list --post_type=page --name="home" --field=ID --allow-root 2>/dev/null | head -1)
+[ -z "$FRONT_ID" ] && FRONT_ID="$HOME_ID"
+if [ -n "$FRONT_ID" ]; then
+    $WP option update page_on_front "$FRONT_ID"
     $WP option update show_on_front "page"
-    log "Front page set to Home"
+    log "Front page set to Home (ID: $FRONT_ID)"
 fi
 
 # Add pages to primary menu
