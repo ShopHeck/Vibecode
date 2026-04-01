@@ -20,7 +20,7 @@ get_header();
 		</p>
 
 		<!-- Search Bar -->
-		<form method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="ob-search-form" style="margin:0 auto;gap:0;border-radius:var(--ob-radius);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.4);">
+		<form method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="ob-search-form" style="margin:0 auto;gap:0;box-shadow:0 4px 24px rgba(0,0,0,0.4);">
 			<input
 				type="search"
 				name="s"
@@ -323,7 +323,7 @@ if ( $featured_query->have_posts() ) :
 		<?php if ( function_exists( 'mc4wp_show_form' ) ) : ?>
 			<?php mc4wp_show_form(); ?>
 		<?php else : ?>
-			<form class="ob-newsletter-form" style="border-radius:var(--ob-radius);overflow:hidden;">
+			<form class="ob-newsletter-form">
 				<input type="email" placeholder="Your email address" style="flex:1;padding:14px 18px;font-size:15px;border:none;outline:none;">
 				<button type="submit" style="background:var(--ob-primary);color:#fff;border:none;padding:14px 24px;font-weight:700;cursor:pointer;">Subscribe</button>
 			</form>

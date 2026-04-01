@@ -80,11 +80,32 @@
   <button class="ob-hamburger" id="ob-nav-close" aria-label="Close menu">
     <span></span><span></span><span></span>
   </button>
-  <a href="<?php echo esc_url( home_url( '/casinos/' ) ); ?>">Casinos</a>
-  <a href="<?php echo esc_url( home_url( '/best-of/' ) ); ?>">Best of Ontario</a>
-  <a href="<?php echo esc_url( home_url( '/casinos/compare/' ) ); ?>">Compare</a>
-  <a href="<?php echo esc_url( home_url( '/travel/' ) ); ?>">Travel</a>
-  <a href="<?php echo esc_url( home_url( '/responsible-gambling/' ) ); ?>" class="ob-nav-overlay__rg-link">19+ | Play Responsibly</a>
+  <?php
+  wp_nav_menu( array(
+      'theme_location' => 'primary',
+      'container'      => false,
+      'menu_class'     => 'ob-nav-overlay-menu',
+      'fallback_cb'    => function() {
+          echo '<ul class="ob-nav-overlay-menu">';
+          $items = array(
+              'Casinos'       => '/casinos/',
+              'Travel'        => '/travel/',
+              'Restaurants'   => '/restaurants/',
+              'Entertainment' => '/entertainment/',
+              'Services'      => '/services/',
+              'Blog'          => '/blog/',
+          );
+          foreach ( $items as $label => $url ) {
+              echo '<li><a href="' . esc_url( home_url( $url ) ) . '">' . esc_html( $label ) . '</a></li>';
+          }
+          echo '</ul>';
+      },
+  ) );
+  ?>
+  <a href="<?php echo esc_url( home_url( '/responsible-gambling/' ) ); ?>"
+     class="ob-nav-overlay__rg-link ob-nav-overlay__rg-bottom">
+    19+ | Play Responsibly
+  </a>
 </nav>
 
 <style>
@@ -207,7 +228,7 @@
     if (!document.body.classList.contains('nav-open')) return;
 
     var focusable = Array.from(
-      document.querySelectorAll('.ob-nav-overlay button, .ob-nav-overlay a')
+      document.querySelectorAll('.ob-nav-overlay button, .ob-nav-overlay a, .ob-nav-overlay-menu a')
     ).filter(function(el) { return !el.disabled; });
 
     if (!focusable.length) return;

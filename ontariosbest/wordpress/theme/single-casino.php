@@ -173,12 +173,12 @@ $cons           = ob_casino_meta( '_casino_cons' );
 					if ( ! $score ) continue;
 					$pct = ( (float) $score / 5 ) * 100;
 				?>
-				<div class="ob-score-row" style="margin-bottom:10px;">
-					<div class="ob-score-row__label" style="font-size:13px;"><?php echo esc_html( $label ); ?></div>
-					<div class="ob-score-row__bar-wrap" style="flex:1;background:#e0e0e0;border-radius:4px;height:8px;overflow:hidden;">
-						<div class="ob-score-row__bar" style="width:<?php echo $pct; ?>%;height:100%;background:var(--ob-primary);border-radius:4px;"></div>
+				<div class="ob-score-row">
+					<div class="ob-score-row__label"><?php echo esc_html( $label ); ?></div>
+					<div class="ob-score-row__bar-wrap">
+						<div class="ob-score-row__bar" style="width:<?php echo intval( $pct ); ?>%;"></div>
 					</div>
-					<div class="ob-score-row__value" style="font-size:13px;font-weight:700;min-width:28px;text-align:right;"><?php echo esc_html( $score ); ?></div>
+					<div class="ob-score-row__value"><?php echo esc_html( $score ); ?></div>
 				</div>
 				<?php endforeach; ?>
 
