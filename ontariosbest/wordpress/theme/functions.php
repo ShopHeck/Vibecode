@@ -18,7 +18,7 @@ function ontariosbest_enqueue_styles() {
 	wp_enqueue_style(
 		'astra-child-theme-css',
 		get_stylesheet_directory_uri() . '/style.css',
-		array( 'astra-theme-css' ),
+		array(),
 		wp_get_theme()->get( 'Version' )
 	);
 }
