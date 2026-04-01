@@ -95,8 +95,7 @@ log "Default content cleaned"
 log "Installing Astra theme..."
 
 if $WP theme is-installed astra 2>/dev/null; then
-    warn "Astra already installed, updating..."
-    $WP theme update astra
+    warn "Astra already installed — skipping update to avoid breaking changes"
 else
     $WP theme install astra
 fi
