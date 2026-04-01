@@ -27,10 +27,10 @@ $cons           = ob_casino_meta( '_casino_cons' );
 <div class="ob-page-wrap">
 	<div class="ast-container" style="padding-top:32px;padding-bottom:48px;">
 
-		<div style="display:flex;gap:32px;align-items:flex-start;">
+		<div class="ob-review-layout">
 
 			<!-- Main Content -->
-			<article style="flex:1;min-width:0;">
+			<article class="ob-review-layout__content">
 
 				<!-- Header -->
 				<div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;">
@@ -148,7 +148,7 @@ $cons           = ob_casino_meta( '_casino_cons' );
 			</article>
 
 			<!-- Sidebar Score Box -->
-			<aside style="width:260px;flex-shrink:0;position:sticky;top:24px;">
+			<aside class="ob-review-layout__sidebar">
 
 				<?php if ( $rating ) : ?>
 				<div class="ob-score-box" style="margin-bottom:16px;">
@@ -174,7 +174,7 @@ $cons           = ob_casino_meta( '_casino_cons' );
 					$pct = ( (float) $score / 5 ) * 100;
 				?>
 				<div class="ob-score-row" style="margin-bottom:10px;">
-					<div class="ob-score-row__label" style="font-size:13px;min-width:120px;"><?php echo esc_html( $label ); ?></div>
+					<div class="ob-score-row__label" style="font-size:13px;"><?php echo esc_html( $label ); ?></div>
 					<div class="ob-score-row__bar-wrap" style="flex:1;background:#e0e0e0;border-radius:4px;height:8px;overflow:hidden;">
 						<div class="ob-score-row__bar" style="width:<?php echo $pct; ?>%;height:100%;background:var(--ob-primary);border-radius:4px;"></div>
 					</div>
@@ -199,11 +199,43 @@ $cons           = ob_casino_meta( '_casino_cons' );
 
 			</aside>
 
-		</div><!-- flex -->
+		</div><!-- .ob-review-layout -->
 	</div><!-- .ast-container -->
 </div><!-- .ob-page-wrap -->
 
+<?php if ( $aff_link ) : ?>
+<div class="ob-sticky-cta" id="ob-sticky-cta">
+  <div>
+    <strong class="ob-sticky-cta__label"><?php the_title(); ?></strong>
+    <?php if ( $bonus ) : ?>
+      <span class="ob-sticky-cta__sub"><?php echo esc_html( $bonus ); ?></span>
+    <?php endif; ?>
+  </div>
+  <a href="<?php echo esc_url( $aff_link ); ?>"
+     class="ob-btn"
+     rel="nofollow noopener sponsored"
+     target="_blank">
+    Play Now →
+  </a>
+</div>
+<?php endif; ?>
+
 <?php
 endwhile;
+?>
+
+<script>
+(function() {
+  var bar    = document.getElementById('ob-sticky-cta');
+  var footer = document.querySelector('footer');
+  if (!bar || !footer) return;
+  var io = new IntersectionObserver(function(entries) {
+    bar.classList.toggle('is-hidden', entries[0].isIntersecting);
+  }, { rootMargin: '0px 0px -80px 0px' });
+  io.observe(footer);
+})();
+</script>
+
+<?php
 get_footer();
 ?>
