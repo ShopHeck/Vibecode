@@ -172,13 +172,17 @@ fi
 log "Creating navigation menus..."
 
 # Primary menu
-if ! $WP menu exists "Primary Menu" 2>/dev/null; then
+if $WP menu list --format=csv --fields=name 2>/dev/null | grep -qF "Primary Menu" 2>/dev/null; then
+    warn "Primary Menu already exists — skipping"
+else
     $WP menu create "Primary Menu"
 fi
 $WP menu location assign "Primary Menu" primary 2>/dev/null || true
 
 # Footer menu
-if ! $WP menu exists "Footer Menu" 2>/dev/null; then
+if $WP menu list --format=csv --fields=name 2>/dev/null | grep -qF "Footer Menu" 2>/dev/null; then
+    warn "Footer Menu already exists — skipping"
+else
     $WP menu create "Footer Menu"
 fi
 $WP menu location assign "Footer Menu" footer 2>/dev/null || true
