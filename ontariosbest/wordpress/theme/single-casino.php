@@ -223,7 +223,7 @@ $cons           = ob_casino_meta( '_casino_cons' );
 				   target="_blank">
 					Claim Your Bonus →
 				</a>
-				<p class="ob-verdict-cta__legal">19+ | Terms apply | <a href="/responsible-gambling/">Play Responsibly</a></p>
+				<p class="ob-verdict-cta__legal">19+ | Terms apply | <a href="<?php echo esc_url( home_url( '/responsible-gambling/' ) ); ?>">Play Responsibly</a></p>
 			</div>
 			<?php endif; ?>
 
