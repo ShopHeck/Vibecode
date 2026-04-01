@@ -28,6 +28,7 @@ Text Domain:  ontariosbest
 	--ob-radius:     8px;
 
 	/* Breakpoints */
+	/* Breakpoint reference values — CSS custom props cannot be used inside @media queries. Use hardcoded px values in queries (see breakpoint scale below). */
 	--bp-sm: 600px;
 	--bp-md: 768px;
 	--bp-lg: 1024px;
@@ -229,7 +230,8 @@ a:hover {
 }
 
 .ob-score-row__label {
-	min-width: 130px;
+	width: 40%;
+	flex-shrink: 0;
 	font-size: 14px;
 }
 
@@ -466,7 +468,7 @@ a:hover {
     display: flex;
     position: fixed;
     bottom: 0; left: 0; right: 0;
-    z-index: 900;
+    z-index: 950;
     background: var(--ob-primary);
     padding: var(--space-sm) var(--space-md);
     align-items: center;
@@ -475,8 +477,8 @@ a:hover {
     transition: transform 0.2s;
   }
   .ob-sticky-cta.is-hidden { transform: translateY(100%); }
-  .ob-sticky-cta strong { color: var(--ob-dark); font-size: 14px; display: block; }
-  .ob-sticky-cta span { color: var(--ob-dark); font-size: 12px; opacity: 0.8; }
+  .ob-sticky-cta__label { color: var(--ob-dark); font-size: 14px; display: block; font-weight: 700; }
+  .ob-sticky-cta__sub { color: var(--ob-dark); font-size: 12px; opacity: 0.8; }
 }
 
 /* -------------------------------------------------------
@@ -488,13 +490,15 @@ a:hover {
   position: fixed;
   inset: 0;
   background: rgba(10,10,20,0.97);
-  z-index: 1000;
+  z-index: 9999;
   flex-direction: column;
   padding: var(--space-lg) var(--space-md);
   overflow-y: auto;
 }
 body.nav-open .ob-nav-overlay { display: flex; }
-body.nav-open { overflow: hidden; }
+@media (max-width: 900px) {
+  body.nav-open { overflow: hidden; }
+}
 
 .ob-nav-overlay a {
   font-size: 18px;
@@ -568,12 +572,6 @@ body.nav-open .ob-hamburger span:nth-child(3) { transform: translateY(-7px) rota
   .ob-newsletter-form input  { width: 100%; flex: none; }
   .ob-newsletter-form button { width: 100%; }
 }
-
-/* -------------------------------------------------------
-   1j. Score Row Fix
-------------------------------------------------------- */
-
-.ob-score-label { width: 40%; flex-shrink: 0; font-size: 13px; }
 
 /* -------------------------------------------------------
    1k. Hero Responsive Padding
