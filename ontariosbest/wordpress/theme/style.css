@@ -495,8 +495,8 @@ a:hover {
   padding: var(--space-lg) var(--space-md);
   overflow-y: auto;
 }
-body.nav-open .ob-nav-overlay { display: flex; }
 @media (max-width: 900px) {
+  body.nav-open .ob-nav-overlay { display: flex; }
   body.nav-open { overflow: hidden; }
 }
 
@@ -513,6 +513,10 @@ body.nav-open .ob-nav-overlay { display: flex; }
 }
 .ob-nav-overlay a:hover { color: var(--ob-primary); }
 .ob-nav-overlay a:last-child { border-bottom: none; }
+.ob-nav-overlay__rg-link,
+.ob-nav-overlay__rg-link:hover {
+  color: var(--ob-primary) !important;
+}
 
 /* Animated hamburger — 3 bars → x */
 .ob-hamburger {
@@ -532,6 +536,9 @@ body.nav-open .ob-nav-overlay { display: flex; }
   background: #fff;
   transition: transform 0.2s, opacity 0.2s;
   border-radius: 2px;
+}
+#ob-header .ob-hamburger span {
+  background: var(--ob-dark);
 }
 @media (max-width: 900px) {
   .ob-hamburger { display: flex; }

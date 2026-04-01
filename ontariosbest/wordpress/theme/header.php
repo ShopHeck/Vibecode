@@ -75,7 +75,8 @@
 
 </header>
 
-<nav class="ob-nav-overlay" id="ob-nav-overlay" aria-label="Mobile navigation">
+<nav class="ob-nav-overlay" id="ob-nav-overlay"
+     role="dialog" aria-modal="true" aria-label="Mobile navigation">
   <button class="ob-hamburger" id="ob-nav-close" aria-label="Close menu">
     <span></span><span></span><span></span>
   </button>
@@ -83,7 +84,7 @@
   <a href="<?php echo esc_url( home_url( '/best-of/' ) ); ?>">Best of Ontario</a>
   <a href="<?php echo esc_url( home_url( '/casinos/compare/' ) ); ?>">Compare</a>
   <a href="<?php echo esc_url( home_url( '/travel/' ) ); ?>">Travel</a>
-  <a href="<?php echo esc_url( home_url( '/responsible-gambling/' ) ); ?>" style="color:var(--ob-primary)">19+ | Play Responsibly</a>
+  <a href="<?php echo esc_url( home_url( '/responsible-gambling/' ) ); ?>" class="ob-nav-overlay__rg-link">19+ | Play Responsibly</a>
 </nav>
 
 <style>
@@ -176,10 +177,12 @@
   function openNav() {
     document.body.classList.add('nav-open');
     toggle.setAttribute('aria-expanded', 'true');
+    close.focus();
   }
   function closeNav() {
     document.body.classList.remove('nav-open');
     toggle.setAttribute('aria-expanded', 'false');
+    toggle.focus();
   }
 
   toggle.addEventListener('click', function() {
@@ -192,9 +195,30 @@
     a.addEventListener('click', closeNav);
   });
 
-  // Close on Escape key
+  // Keyboard handlers: Escape closes; Tab is trapped inside overlay
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeNav();
+    if (e.key === 'Escape') {
+      closeNav();
+      return;
+    }
+
+    // Focus trap
+    if (e.key !== 'Tab') return;
+    if (!document.body.classList.contains('nav-open')) return;
+
+    var focusable = Array.from(
+      document.querySelectorAll('.ob-nav-overlay button, .ob-nav-overlay a')
+    ).filter(function(el) { return !el.disabled; });
+
+    if (!focusable.length) return;
+    var first = focusable[0];
+    var last  = focusable[focusable.length - 1];
+
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+    }
   });
 })();
 </script>
