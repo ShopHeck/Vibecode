@@ -193,6 +193,15 @@ function ontariosbest_register_taxonomies() {
 		'hierarchical' => true,
 		'show_in_rest' => true,
 	) );
+
+	// City — shared across all listing CPTs for city hub filtering
+	register_taxonomy( 'city', array( 'casino', 'restaurant', 'travel', 'entertainment' ), array(
+		'label'        => 'City',
+		'rewrite'      => array( 'slug' => 'city' ),
+		'hierarchical' => false,
+		'show_in_rest' => true,
+		'show_ui'      => true,
+	) );
 }
 
 // -------------------------------------------------------
