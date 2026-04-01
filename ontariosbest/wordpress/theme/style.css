@@ -656,3 +656,213 @@ body.nav-open .ob-hamburger span:nth-child(3) { transform: translateY(-7px) rota
 ------------------------------------------------------- */
 
 .ob-hero { padding: clamp(40px, 8vw, 80px) 0 clamp(32px, 6vw, 64px); }
+
+/* ═══════════════════════════════════════════════════════
+   CASINO REVIEW — COMPARISON CTA
+═══════════════════════════════════════════════════════ */
+.ob-compare-cta {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px;
+	padding: 14px 16px;
+	background: var(--ob-dark-4);
+	border: 1px solid var(--ob-gold-border);
+	border-radius: var(--ob-radius);
+	margin-top: 20px;
+	font-size: 14px;
+}
+.ob-compare-cta__label {
+	color: var(--ob-text-muted);
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	flex-shrink: 0;
+}
+.ob-compare-cta .ob-compare-link {
+	color: var(--ob-primary);
+	text-decoration: none;
+	font-weight: 600;
+}
+.ob-compare-cta .ob-compare-link:hover { text-decoration: underline; }
+.ob-compare-cta__sep { color: var(--ob-text-muted); font-size: 12px; }
+.ob-compare-cta__btn {
+	margin-left: auto;
+	font-size: 13px;
+	color: var(--ob-primary);
+	text-decoration: none;
+	font-weight: 700;
+	white-space: nowrap;
+}
+.ob-compare-cta__btn:hover { text-decoration: underline; }
+
+/* ═══════════════════════════════════════════════════════
+   CASINO REVIEW — FAQ ACCORDION
+═══════════════════════════════════════════════════════ */
+.ob-faq { margin-top: 32px; }
+.ob-faq__heading {
+	font-family: 'Playfair Display', Georgia, serif;
+	font-size: 22px;
+	color: var(--ob-gold-light);
+	margin-bottom: 16px;
+}
+.ob-faq__item {
+	border-bottom: 1px solid var(--ob-border);
+}
+.ob-faq__question {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 16px 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+	text-align: left;
+	font-size: 15px;
+	font-weight: 600;
+	color: var(--ob-text);
+	gap: 12px;
+}
+.ob-faq__question:hover { color: var(--ob-primary); }
+.ob-faq__icon {
+	color: var(--ob-primary);
+	font-size: 20px;
+	line-height: 1;
+	flex-shrink: 0;
+	font-style: normal;
+	font-weight: 300;
+}
+.ob-faq__answer {
+	padding: 0 0 16px;
+	font-size: 14px;
+	color: var(--ob-text-soft);
+	line-height: 1.7;
+}
+.ob-faq__answer[hidden] { display: none; }
+
+/* ═══════════════════════════════════════════════════════
+   CASINO REVIEW — VERDICT CTA
+═══════════════════════════════════════════════════════ */
+.ob-verdict-cta {
+	margin-top: 40px;
+	padding: 32px 24px;
+	background: var(--ob-dark-3);
+	border: 1px solid var(--ob-gold-border);
+	border-radius: var(--ob-radius);
+	text-align: center;
+}
+.ob-verdict-cta__heading {
+	font-family: 'Playfair Display', Georgia, serif;
+	font-size: 22px;
+	color: var(--ob-gold-light);
+	margin: 0 0 8px;
+}
+.ob-verdict-cta__bonus {
+	font-size: 18px;
+	font-weight: 700;
+	color: var(--ob-primary);
+	margin: 0 0 20px;
+}
+.ob-btn--lg {
+	font-size: 15px;
+	padding: 16px 40px;
+}
+.ob-verdict-cta__legal {
+	font-size: 11px;
+	color: var(--ob-text-muted);
+	margin-top: 12px;
+}
+.ob-verdict-cta__legal a { color: var(--ob-text-muted); }
+
+/* ═══════════════════════════════════════════════════════
+   CITY HUB — PAGE LAYOUT
+═══════════════════════════════════════════════════════ */
+.ob-city-hub {}
+.ob-city-hero {
+	background: linear-gradient(160deg, var(--ob-dark-2) 0%, var(--ob-dark) 70%);
+	border-bottom: 1px solid var(--ob-gold-border);
+	padding: clamp(40px,8vw,80px) 0 clamp(32px,6vw,56px);
+	text-align: center;
+}
+.ob-city-hero__eyebrow {
+	font-size: 11px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--ob-primary);
+	margin: 0 0 12px;
+}
+.ob-city-hero__title {
+	font-family: 'Playfair Display', Georgia, serif;
+	font-size: clamp(28px,5vw,52px);
+	font-weight: 900;
+	color: var(--ob-text);
+	margin: 0 0 14px;
+}
+.ob-city-hero__subtitle {
+	font-size: 16px;
+	color: var(--ob-text-soft);
+	max-width: 560px;
+	margin: 0 auto;
+}
+
+.ob-city-section { padding: 48px 0; border-bottom: 1px solid var(--ob-border); }
+.ob-city-section:last-child { border-bottom: none; }
+.ob-city-section__header {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	margin-bottom: 24px;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+.ob-city-section__title {
+	font-family: 'Playfair Display', Georgia, serif;
+	font-size: 22px;
+	color: var(--ob-gold-light);
+	margin: 0;
+}
+.ob-city-section__viewall {
+	font-size: 13px;
+	color: var(--ob-primary);
+	text-decoration: none;
+	font-weight: 600;
+}
+.ob-city-section__viewall:hover { text-decoration: underline; }
+
+/* ═══════════════════════════════════════════════════════
+   SPONSORED PLACEMENT BADGES
+═══════════════════════════════════════════════════════ */
+.ob-placement-wrap { position: relative; }
+.ob-sponsored-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 10px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	padding: 3px 8px;
+	border-radius: 2px;
+	margin-bottom: 6px;
+}
+.ob-sponsored-badge--featured {
+	background: var(--ob-primary);
+	color: var(--ob-dark);
+}
+.ob-sponsored-badge--standard {
+	background: var(--ob-dark-5);
+	color: var(--ob-text-muted);
+	border: 1px solid var(--ob-border);
+}
+/* Placeholder slot — shown when no featured listing assigned */
+.ob-featured-placeholder {
+	border: 2px dashed var(--ob-gold-border);
+	border-radius: var(--ob-radius);
+	padding: 24px;
+	text-align: center;
+	color: var(--ob-text-muted);
+	font-size: 13px;
+}
+.ob-featured-placeholder strong { color: var(--ob-primary); display: block; margin-bottom: 6px; }
+.ob-featured-placeholder a { color: var(--ob-primary); }
