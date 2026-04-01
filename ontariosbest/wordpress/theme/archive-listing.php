@@ -73,17 +73,17 @@ $active_region = isset( $_GET['region'] ) ? sanitize_text_field( $_GET['region']
 
 <div style="padding:40px 0;">
 	<div class="ast-container">
-		<div style="display:flex;gap:32px;align-items:flex-start;">
+		<div class="ob-review-layout">
 
 			<!-- Listings -->
-			<div style="flex:1;min-width:0;">
+			<div class="ob-review-layout__content">
 
 				<!-- Filter bar -->
 				<?php
 				$filter_terms = get_terms( array( 'taxonomy' => $c['filter'], 'hide_empty' => true ) );
 				if ( ! empty( $filter_terms ) && ! is_wp_error( $filter_terms ) ) :
 				?>
-				<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;">
+				<div class="ob-cluster" style="margin-bottom:24px;">
 					<a href="<?php echo esc_url( get_post_type_archive_link( $post_type ) ); ?>"
 					   style="padding:6px 16px;border-radius:20px;font-size:13px;text-decoration:none;<?php echo ! $active_filter ? 'background:var(--ob-primary);color:#fff;' : 'background:#f0f0f0;color:#444;'; ?>">
 						All
@@ -203,7 +203,7 @@ $active_region = isset( $_GET['region'] ) ? sanitize_text_field( $_GET['region']
 			</div><!-- listings -->
 
 			<!-- Sidebar -->
-			<aside style="width:260px;flex-shrink:0;">
+			<aside class="ob-review-layout__sidebar">
 
 				<!-- Region filter -->
 				<?php
