@@ -23,13 +23,6 @@ function ontariosbest_enqueue_styles() {
 	);
 }
 
-add_filter('template_include', function($template) {
-    if (is_page()) {
-        $custom = get_template_directory() . '/blank.php';
-        if (file_exists($custom)) return $custom;
-    }
-    return $template;
-});
 
 // -------------------------------------------------------
 // Custom Post Types
