@@ -70,8 +70,9 @@ create_city_hub() {
         --post_name="$slug" \
         --post_parent="$ONTARIO_ID" \
         --post_content="" \
-        --page_template="template-city-hub.php" \
         --porcelain 2>/dev/null)
+
+    $WP post meta update "$ID" _wp_page_template "template-city-hub.php" 2>/dev/null
 
     $WP post meta update "$ID" _city_name "$name" 2>/dev/null
     $WP post meta update "$ID" _city_slug "$city_term" 2>/dev/null
@@ -88,10 +89,12 @@ create_city_hub() {
 # ---------------------------------------------------------------------------
 # 3. Create city taxonomy terms
 # ---------------------------------------------------------------------------
-for city in toronto ottawa niagara-falls; do
-    $WP term create city "$city" --slug="$city" 2>/dev/null || true
-    log "City term: $city"
-done
+$WP term create city "Toronto" --slug="toronto" 2>/dev/null || true
+log "City term: Toronto"
+$WP term create city "Ottawa" --slug="ottawa" 2>/dev/null || true
+log "City term: Ottawa"
+$WP term create city "Niagara Falls" --slug="niagara-falls" 2>/dev/null || true
+log "City term: Niagara Falls"
 
 # ---------------------------------------------------------------------------
 # 4. Create hub pages

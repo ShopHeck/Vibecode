@@ -148,7 +148,7 @@ $cons           = ob_casino_meta( '_casino_cons' );
 			<?php
 			$compare_with = ob_casino_meta( '_casino_compare_with' );
 			if ( $compare_with ) :
-				$compare_slugs = array_filter( array_map( 'trim', explode( ',', $compare_with ) ) );
+				$compare_slugs = array_values( array_filter( array_map( 'trim', explode( ',', $compare_with ) ) ) );
 				$compare_links = array();
 				foreach ( $compare_slugs as $slug ) {
 					$compare_post = get_page_by_path( $slug, OBJECT, 'casino' );

@@ -23,6 +23,7 @@ $city_subtitle = get_post_meta( get_the_ID(), '_city_subtitle', true ) ?: "Disco
  * @param string $rating_key Post meta key for numeric rating.
  * @return WP_Query
  */
+if ( ! function_exists( 'ob_city_query' ) ) :
 function ob_city_query( $post_type, $city_slug, $limit, $rating_key ) {
 	return new WP_Query( array(
 		'post_type'      => $post_type,
@@ -41,6 +42,11 @@ function ob_city_query( $post_type, $city_slug, $limit, $rating_key ) {
 			),
 			array(
 				'key'     => '_ob_sponsored_tier',
+				'value'   => 'standard',
+				'compare' => '=',
+			),
+			array(
+				'key'     => '_ob_sponsored_tier',
 				'compare' => 'NOT EXISTS',
 			),
 		),
@@ -50,12 +56,14 @@ function ob_city_query( $post_type, $city_slug, $limit, $rating_key ) {
 		'meta_key'       => $rating_key,
 	) );
 }
+endif;
 
 /**
  * Helper: render a sponsored tier badge above a listing card.
  *
  * @param int $post_id
  */
+if ( ! function_exists( 'ob_render_sponsored_badge' ) ) :
 function ob_render_sponsored_badge( $post_id ) {
 	$tier = get_post_meta( $post_id, '_ob_sponsored_tier', true );
 	if ( $tier === 'featured' ) {
@@ -64,18 +72,21 @@ function ob_render_sponsored_badge( $post_id ) {
 		echo '<span class="ob-sponsored-badge ob-sponsored-badge--standard">Sponsored</span>';
 	}
 }
+endif;
 
 /**
  * Helper: render a placeholder slot when no featured listing is present.
  *
  * @param string $vertical  Human-readable vertical name.
  */
+if ( ! function_exists( 'ob_render_featured_placeholder' ) ) :
 function ob_render_featured_placeholder( $vertical ) {
 	echo '<div class="ob-featured-placeholder">';
 	echo '<strong>Featured ' . esc_html( $vertical ) . ' Placement</strong>';
 	echo '<p>Promote your ' . esc_html( strtolower( $vertical ) ) . ' here. <a href="' . esc_url( home_url( '/advertise/' ) ) . '">Learn about sponsorships →</a></p>';
 	echo '</div>';
 }
+endif;
 
 $casino_query      = ob_city_query( 'casino',        $city_slug, 3, '_casino_overall_rating' );
 $restaurant_query  = ob_city_query( 'restaurant',    $city_slug, 6, '_listing_overall_rating' );
@@ -121,7 +132,7 @@ $has_featured_restaurant = false;
 				</div>
 				<div class="ob-casino-card__info">
 					<div class="ob-casino-card__name"><?php the_title(); ?></div>
-					<?php if ( $rating ) echo '<div class="ob-casino-card__rating">' . ob_render_stars( $rating ) . ' ' . esc_html( number_format( (float) $rating, 1 ) ) . '</div>'; ?>
+					<?php if ( $rating ) echo '<div class="ob-casino-card__rating">' . ob_render_stars( $rating ) . '</div>'; ?>
 					<?php if ( $bonus ) echo '<div class="ob-casino-card__bonus">' . esc_html( $bonus ) . '</div>'; ?>
 				</div>
 				<?php if ( $aff_link ) : ?>
@@ -165,10 +176,10 @@ $has_featured_restaurant = false;
 			else : ?>
 			<div style="grid-column:1/-1;"><?php ob_render_featured_placeholder( 'Restaurant' ); ?></div>
 			<?php endif; ?>
-			</div>
 			<?php if ( ! $has_featured_restaurant && $restaurant_query->found_posts > 0 ) : ?>
-			<?php ob_render_featured_placeholder( 'Restaurant' ); ?>
+			<div style="grid-column:1/-1;"><?php ob_render_featured_placeholder( 'Restaurant' ); ?></div>
 			<?php endif; ?>
+			</div>
 		</section>
 
 		<!-- ── Travel ── -->
