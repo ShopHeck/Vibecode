@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "WordPress (Full Stack)",
+      "runtimeExecutable": "docker",
+      "runtimeArgs": ["compose", "-f", "../docker-compose.yml", "up", "-d"],
+      "port": 8080
+    },
+    {
+      "name": "WordPress Only",
+      "runtimeExecutable": "docker",
+      "runtimeArgs": ["compose", "-f", "../docker-compose.yml", "up", "-d", "db", "wordpress"],
+      "port": 8080
+    },
+    {
+      "name": "phpMyAdmin",
+      "runtimeExecutable": "docker",
+      "runtimeArgs": ["compose", "-f", "../docker-compose.yml", "up", "-d", "db", "phpmyadmin"],
+      "port": 8081
+    }
+  ]
+}

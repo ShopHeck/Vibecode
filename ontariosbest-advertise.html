@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Featured on Ontario's Best | Sponsored Placement Packages</title>
+<meta name="description" content="Reach Ontario's highest-intent audience. Sponsored placements on Ontario's Best — iGaming, hotels, dining, attractions. Three tiers from $299/month.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F8F9FB;
+    --bg2: #FFFFFF;
+    --ink: #0D0F12;
+    --ink-2: #2C3038;
+    --ink-3: #5C6270;
+    --ink-4: #9198A8;
+    --accent: #0057FF;
+    --accent-2: #0040CC;
+    --accent-dim: rgba(0,87,255,0.08);
+    --accent-border: rgba(0,87,255,0.2);
+    --green: #00B86B;
+    --green-dim: rgba(0,184,107,0.1);
+    --amber: #F59E0B;
+    --red: #EF4444;
+    --border: rgba(13,15,18,0.09);
+    --border-2: rgba(13,15,18,0.05);
+    --shadow-sm: 0 1px 4px rgba(13,15,18,0.06), 0 4px 16px rgba(13,15,18,0.04);
+    --shadow-md: 0 4px 16px rgba(13,15,18,0.08), 0 16px 48px rgba(13,15,18,0.06);
+    --shadow-lg: 0 8px 32px rgba(13,15,18,0.1), 0 32px 80px rgba(13,15,18,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0;
+  }
+
+  .header-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-link {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--ink-3);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+
+  .nav-link:hover { background: var(--bg); color: var(--ink); }
+
+  .nav-cta {
+    font-size: 0.82rem;
+    font-weight: 600;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 7px;
+    transition: background 0.15s;
+    margin-left: 8px;
+  }
+
+  .nav-cta:hover { background: var(--accent-2); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    padding: 96px 0 80px;
+  }
+
+  /* Grid texture */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+
+  /* Blue glow */
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(0,87,255,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,87,255,0.15);
+    border: 1px solid rgba(0,87,255,0.3);
+    color: #7EB3FF;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+
+  .eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    background: #7EB3FF;
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: #7EB3FF;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.55);
+    max-width: 560px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-2);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0,87,255,0.35);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.12);
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+
+  /* HERO STATS */
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .hero-stat {
+    flex: 1;
+    padding: 22px 24px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .hero-stat:last-child { border-right: none; }
+
+  .hero-stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.9rem;
+    color: #fff;
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .hero-stat-label {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── SECTION WRAPPERS ── */
+  .section {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 80px 32px;
+  }
+
+  .section-center { text-align: center; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  h2 em { font-style: italic; color: var(--accent); }
+
+  h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--ink-3);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  .section-sub-center {
+    margin: 0 auto;
+  }
+
+  p { color: var(--ink-3); font-size: 0.93rem; line-height: 1.75; margin-bottom: 14px; }
+  strong { color: var(--ink-2); font-weight: 600; }
+
+  hr.rule {
+    border: none;
+    border-top: 1px solid var(--border);
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  /* ── WHY FEATURES ── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .why-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    transition: box-shadow 0.2s;
+  }
+
+  .why-card:hover { box-shadow: var(--shadow-sm); }
+
+  .why-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--accent-dim);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+  }
+
+  .why-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .why-desc { font-size: 0.85rem; color: var(--ink-3); line-height: 1.6; margin: 0; }
+
+  /* ── CATEGORIES ── */
+  .categories-section {
+    background: var(--ink);
+    padding: 80px 0;
+  }
+
+  .categories-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .categories-inner .section-label { color: #7EB3FF; }
+  .categories-inner h2 { color: #fff; }
+  .categories-inner .section-sub { color: rgba(255,255,255,0.5); }
+
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .cat-card {
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 24px;
+    background: rgba(255,255,255,0.04);
+    transition: all 0.2s;
+    cursor: default;
+  }
+
+  .cat-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(0,87,255,0.4);
+  }
+
+  .cat-icon { font-size: 1.6rem; display: block; margin-bottom: 12px; }
+
+  .cat-name {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .cat-desc { font-size: 0.78rem; color: rgba(255,255,255,0.4); line-height: 1.5; margin: 0; }
+
+  .cat-slots {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green);
+    background: var(--green-dim);
+    padding: 3px 9px;
+    border-radius: 4px;
+  }
+
+  .cat-slots.limited { color: var(--amber); background: rgba(245,158,11,0.1); }
+  .cat-slots.full { color: var(--red); background: rgba(239,68,68,0.1); }
+
+  /* ── PRICING ── */
+  .pricing-section {
+    padding: 96px 0;
+    background: var(--bg);
+  }
+
+  .pricing-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 52px;
+    align-items: start;
+  }
+
+  .pricing-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .pricing-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+  }
+
+  .pricing-card.featured {
+    border-color: var(--accent);
+    position: relative;
+  }
+
+  .featured-ring {
+    position: absolute;
+    inset: -1px;
+    border-radius: 16px;
+    border: 2px solid var(--accent);
+    pointer-events: none;
+  }
+
+  .pricing-badge {
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 7px 16px;
+  }
+
+  .pricing-header {
+    padding: 28px 28px 0;
+  }
+
+  .plan-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    margin-bottom: 8px;
+  }
+
+  .plan-price {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .plan-price sup {
+    font-size: 1.2rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    vertical-align: super;
+  }
+
+  .plan-period {
+    font-size: 0.82rem;
+    color: var(--ink-4);
+    margin-bottom: 16px;
+  }
+
+  .plan-desc {
+    font-size: 0.85rem;
+    color: var(--ink-3);
+    line-height: 1.6;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-2);
+    margin-bottom: 4px;
+  }
+
+  .pricing-features { padding: 20px 28px 28px; }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.85rem;
+    color: var(--ink-2);
+    border-bottom: 1px solid var(--border-2);
+  }
+
+  .feature-item:last-child { border-bottom: none; }
+
+  .feature-check {
+    width: 18px;
+    height: 18px;
+    background: var(--green-dim);
+    color: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-weight: 700;
+  }
+
+  .feature-cross {
+    width: 18px;
+    height: 18px;
+    background: rgba(239,68,68,0.1);
+    color: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-weight: 700;
+  }
+
+  .feature-text { flex: 1; line-height: 1.45; }
+  .feature-muted { color: var(--ink-4); }
+
+  .plan-cta {
+    display: block;
+    text-align: center;
+    margin: 0 28px 28px;
+    padding: 13px 20px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .plan-cta-primary {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+  }
+
+  .plan-cta-primary:hover {
+    background: var(--accent-2);
+    box-shadow: 0 6px 20px rgba(0,87,255,0.3);
+  }
+
+  .plan-cta-secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent-border);
+  }
+
+  .plan-cta-secondary:hover {
+    background: var(--accent-dim);
+  }
+
+  /* Enterprise row */
+  .enterprise-card {
+    background: var(--ink);
+    border-radius: 16px;
+    padding: 40px 48px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .enterprise-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7EB3FF;
+    margin-bottom: 8px;
+  }
+
+  .enterprise-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.7rem;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .enterprise-desc {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+    margin: 0;
+    max-width: 560px;
+  }
+
+  .enterprise-actions { display: flex; gap: 12px; flex-shrink: 0; }
+
+  .enterprise-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 13px 24px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+
+  .ebtn-primary { background: var(--accent); color: #fff; }
+  .ebtn-primary:hover { background: var(--accent-2); }
+
+  .ebtn-secondary {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .ebtn-secondary:hover { background: rgba(255,255,255,0.12); }
+
+  /* ── WHAT YOU GET ── */
+  .placement-section { padding: 80px 0; background: var(--bg2); }
+  .placement-inner { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+
+  .placement-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 52px;
+    align-items: start;
+  }
+
+  /* Mock card preview */
+  .mock-card {
+    background: var(--bg);
+    border: 1.5px solid var(--accent);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    position: relative;
+  }
+
+  .mock-sponsored-badge {
+    position: absolute;
+    top: 0; right: 0;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-bottom-left-radius: 6px;
+  }
+
+  .mock-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mock-logo {
+    width: 48px;
+    height: 48px;
+    background: var(--ink);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .mock-title-area { flex: 1; }
+
+  .mock-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .mock-sub { font-size: 0.75rem; color: var(--ink-4); }
+
+  .mock-rating {
+    font-size: 0.85rem;
+    color: var(--amber);
+    letter-spacing: 2px;
+  }
+
+  .mock-score {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--ink);
+    display: block;
+    text-align: right;
+    line-height: 1;
+  }
+
+  .mock-body { padding: 16px 20px; }
+  .mock-desc { font-size: 0.82rem; color: var(--ink-3); line-height: 1.6; margin-bottom: 12px; }
+
+  .mock-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .mock-tag {
+    font-size: 0.7rem;
+    background: rgba(0,87,255,0.08);
+    color: var(--accent);
+    border: 1px solid rgba(0,87,255,0.15);
+    padding: 3px 9px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .mock-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: rgba(0,87,255,0.04);
+    border-top: 1px solid var(--border);
+  }
+
+  .mock-license { font-size: 0.7rem; color: var(--ink-4); display: flex; align-items: center; gap: 5px; }
+  .mock-license-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+
+  .mock-btn {
+    background: var(--accent);
+    color: #fff;
+    padding: 7px 16px;
+    border-radius: 5px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* What you get list */
+  .gets-list { display: flex; flex-direction: column; gap: 16px; }
+
+  .get-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 20px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.2s;
+  }
+
+  .get-item:hover { border-color: var(--accent-border); }
+
+  .get-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: var(--accent);
+    opacity: 0.3;
+    min-width: 28px;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .get-title { font-weight: 700; font-size: 0.9rem; color: var(--ink); margin-bottom: 3px; }
+  .get-desc { font-size: 0.8rem; color: var(--ink-3); line-height: 1.55; margin: 0; }
+
+  /* ── FAQ ── */
+  .faq-section { padding: 80px 0; background: var(--bg); }
+  .faq-inner { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-q {
+    padding: 20px 0;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--ink);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    user-select: none;
+    transition: color 0.15s;
+  }
+
+  .faq-q:hover { color: var(--accent); }
+
+  .faq-toggle {
+    width: 28px;
+    height: 28px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--accent);
+    transition: transform 0.25s, background 0.15s;
+    flex-shrink: 0;
+    font-weight: 300;
+  }
+
+  .faq-item.open .faq-toggle {
+    transform: rotate(45deg);
+    background: var(--accent-dim);
+  }
+
+  .faq-a {
+    display: none;
+    padding-bottom: 20px;
+    font-size: 0.88rem;
+    color: var(--ink-3);
+    line-height: 1.75;
+  }
+
+  .faq-item.open .faq-a { display: block; }
+
+  /* ── CONTACT FORM ── */
+  .contact-section { padding: 96px 0; background: var(--ink); }
+
+  .contact-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-left {}
+
+  .contact-left .section-label { color: #7EB3FF; }
+  .contact-left h2 { color: #fff; }
+
+  .contact-sub {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  .contact-promise {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .promise-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .promise-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  /* FORM */
+  .contact-form {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 36px;
+  }
+
+  .form-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .form-subtitle {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 28px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .form-group { margin-bottom: 16px; }
+
+  .form-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 7px;
+    letter-spacing: 0.02em;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 11px 14px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.88rem;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.15s, background 0.15s;
+    -webkit-appearance: none;
+  }
+
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    color: rgba(255,255,255,0.25);
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-color: rgba(0,87,255,0.5);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .form-select option { background: #1a1c22; color: #fff; }
+
+  .form-textarea { resize: vertical; min-height: 100px; }
+
+  .form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .form-disclaimer {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .form-submit {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 13px 28px;
+    border-radius: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .form-submit:hover {
+    background: var(--accent-2);
+    box-shadow: 0 6px 20px rgba(0,87,255,0.35);
+    transform: translateY(-1px);
+  }
+
+  /* Success state */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .success-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .success-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .success-sub {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.5);
+    margin: 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #08090B;
+    padding: 32px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .cat-grid { grid-template-columns: 1fr 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .enterprise-card { grid-template-columns: 1fr; gap: 24px; }
+    .placement-grid { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+    nav { display: none; }
+    .hero-stats { flex-direction: column; border: none; gap: 0; }
+    .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .hero-stat:last-child { border-bottom: none; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .why-grid { grid-template-columns: 1fr; }
+    .cat-grid { grid-template-columns: 1fr; }
+    .enterprise-actions { flex-direction: column; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-inner { animation: fadeUp 0.6s ease both; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-dot"></div>
+      Ontario's Best
+    </a>
+    <div class="header-nav">
+      <a href="/hotels/" class="nav-link">Hotels</a>
+      <a href="/things-to-do/toronto/" class="nav-link">Things To Do</a>
+      <a href="/online-casinos/" class="nav-link">iGaming</a>
+      <a href="#packages" class="nav-cta">View Packages →</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-dot"></div>
+      Sponsored Placements · Ontario's Best
+    </div>
+    <h1>Get Your Business<br>in Front of <em>Ontario's</em><br>Best Audience</h1>
+    <p class="hero-sub">Ontario's Best reaches high-intent visitors actively searching for hotels, experiences, online gaming, and things to do across Ontario. Put your brand where decisions get made.</p>
+    <div class="hero-actions">
+      <a href="#packages" class="btn-primary">View Placement Packages →</a>
+      <a href="#contact" class="btn-secondary">Talk to Us First</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">7+</span>
+        <span class="hero-stat-label">Live Pages</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">High</span>
+        <span class="hero-stat-label">Purchase Intent Traffic</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">2026</span>
+        <span class="hero-stat-label">Ontario's Biggest Tourism Year</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">100%</span>
+        <span class="hero-stat-label">Ontario-Targeted</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section">
+  <div class="section-label">Why Ontario's Best</div>
+  <h2>The Right Audience.<br><em>At the Right Moment.</em></h2>
+  <p class="section-sub">Every visitor to Ontario's Best is actively evaluating options — whether it's where to stay, where to bet, or what to do. There's no better moment to be in front of them.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🎯</div>
+      <div class="why-title">High-Intent, Decision-Ready Traffic</div>
+      <p class="why-desc">Our visitors arrive via search queries like "best hotels Ontario" and "best online casinos Ontario 2026." They're not browsing — they're choosing. Your featured placement captures that moment.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📍</div>
+      <div class="why-title">100% Ontario-Focused</div>
+      <p class="why-desc">Every page, every article, every keyword targets Ontario residents and visitors. No wasted reach to audiences outside your market. Your spend goes to the people who can actually walk through your door or sign up on your platform.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📈</div>
+      <div class="why-title">Growing Domain Authority</div>
+      <p class="why-desc">Ontario's Best is actively building SEO authority across multiple high-value verticals. Getting featured now means growing alongside a site that's designed to rank — and stay ranked.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">✍️</div>
+      <div class="why-title">Editorial Credibility</div>
+      <p class="why-desc">We don't accept every advertiser. Placements are clearly labelled, editorially integrated, and limited per category. Your listing appears alongside independently reviewed competitors — which makes the endorsement meaningful.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">2026 Is Ontario's Biggest Year</div>
+      <p class="why-desc">FIFA World Cup, WNBA Toronto Tempo, Eglinton LRT, record iGaming revenue — Ontario is experiencing a once-in-a-generation convergence of tourism and gaming interest. The audience is here now.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🔒</div>
+      <div class="why-title">iGaming AGCO Compliance</div>
+      <p class="why-desc">Our iGaming content is built around AGCO regulations — no bonus promotion, no inducement language. Operators placing ads here know the editorial environment is compliant and won't create liability.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- CATEGORIES -->
+<section class="categories-section">
+  <div class="categories-inner">
+    <div class="section-label">Placement Categories</div>
+    <h2>Choose Your <em>Category</em></h2>
+    <p class="section-sub">Placements are category-specific. You appear on the pages your target customer is already reading — not across the whole site indiscriminately.</p>
+
+    <div class="cat-grid">
+      <div class="cat-card">
+        <span class="cat-icon">🎰</span>
+        <div class="cat-name">Online Casinos</div>
+        <p class="cat-desc">Featured placement on "Best Online Casinos in Ontario 2026" — highest-traffic iGaming page. AGCO-licensed operators only.</p>
+        <span class="cat-slots limited">2 Slots Remaining</span>
+      </div>
+      <div class="cat-card">
+        <span class="cat-icon">🏆</span>
+        <div class="cat-name">Sports Betting</div>
+        <p class="cat-desc">Featured placement on "Best Sports Betting Sites Ontario 2026." Sportsbook operators and adjacent brands.</p>
+        <span class="cat-slots limited">2 Slots Remaining</span>
+      </div>
+      <div class="cat-card">
+        <span class="cat-icon">♠️</span>
+        <div class="cat-name">Online Poker</div>
+        <p class="cat-desc">Featured placement on "Best Online Poker Sites Ontario 2026." Ontario's six regulated poker room operators.</p>
+        <span class="cat-slots">3 Slots Available</span>
+      </div>
+      <div class="cat-card">
+        <span class="cat-icon">🏨</span>
+        <div class="cat-name">Hotels & Accommodation</div>
+        <p class="cat-desc">Featured placement on "Best Hotels in Ontario 2026" — capturing travellers actively booking. Sponsored cards clearly labelled.</p>
+        <span class="cat-slots">3 Slots Available</span>
+      </div>
+      <div class="cat-card">
+        <span class="cat-icon">🗺</span>
+        <div class="cat-name">Things To Do / Attractions</div>
+        <p class="cat-desc">Featured placement in "Best Things To Do in Toronto 2026." Tour operators, attractions, and experience providers.</p>
+        <span class="cat-slots">4 Slots Available</span>
+      </div>
+      <div class="cat-card">
+        <span class="cat-icon">🏙</span>
+        <div class="cat-name">Toronto City Guide</div>
+        <p class="cat-desc">Anchor placement on the Toronto City Guide hub page — the highest-traffic entry point for all tourism content. One slot only.</p>
+        <span class="cat-slots limited">1 Slot Remaining</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="packages">
+  <div class="pricing-inner">
+    <div style="text-align:center; margin-bottom:52px">
+      <div class="section-label">Packages & Pricing</div>
+      <h2>Simple, Transparent <em>Pricing</em></h2>
+      <p class="section-sub section-sub-center">All packages are monthly, billed upfront. No setup fees. Cancel with 30 days' notice. All prices in CAD.</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- STARTER -->
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <div class="plan-name">Starter</div>
+          <div class="plan-price"><sup>$</sup>299</div>
+          <div class="plan-period">per month · CAD</div>
+          <p class="plan-desc">Best for local attractions, smaller operators, and businesses testing sponsored placement for the first time.</p>
+        </div>
+        <div class="pricing-features">
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">1 sponsored listing on your chosen page</span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">"Sponsored" badge — clear, honest labelling</span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">Your logo, name, description, and CTA button</span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">Dofollow link to your website</span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">Positioned after editorial picks</span></div>
+          <div class="feature-item"><div class="feature-cross">✗</div><span class="feature-text feature-muted">Top-of-page positioning</span></div>
+          <div class="feature-item"><div class="feature-cross">✗</div><span class="feature-text feature-muted">Hero sidebar feature</span></div>
+          <div class="feature-item"><div class="feature-cross">✗</div><span class="feature-text feature-muted">Monthly performance report</span></div>
+        </div>
+        <a href="#contact" class="plan-cta plan-cta-secondary">Get Started →</a>
+      </div>
+
+      <!-- FEATURED -->
+      <div class="pricing-card featured">
+        <div class="featured-ring"></div>
+        <div class="pricing-badge">⭐ Most Popular</div>
+        <div class="pricing-header">
+          <div class="plan-name">Featured</div>
+          <div class="plan-price"><sup>$</sup>699</div>
+          <div class="plan-period">per month · CAD</div>
+          <p class="plan-desc">Best for hotels, tour operators, and mid-size iGaming operators who want premium visibility and priority placement.</p>
+        </div>
+        <div class="pricing-features">
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">1 sponsored listing, <strong>top-of-category positioning</strong></span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">"Featured · Sponsored" badge</span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">Logo, name, full description, tags, and CTA</span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">Dofollow link + optional affiliate link setup</span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">Sidebar "Quick Link" widget inclusion</span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">Monthly click & impression report</span></div>
+          <div class="feature-item"><div class="feature-cross">✗</div><span class="feature-text feature-muted">Hero sidebar / above-fold feature</span></div>
+          <div class="feature-item"><div class="feature-cross">✗</div><span class="feature-text feature-muted">Cross-page placement</span></div>
+        </div>
+        <a href="#contact" class="plan-cta plan-cta-primary">Get Started →</a>
+      </div>
+
+      <!-- PREMIER -->
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <div class="plan-name">Premier</div>
+          <div class="plan-price"><sup>$</sup>1,499</div>
+          <div class="plan-period">per month · CAD</div>
+          <p class="plan-desc">Best for casino operators, hotel groups, and brands that want maximum visibility including hero and above-fold placement.</p>
+        </div>
+        <div class="pricing-features">
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">Everything in Featured</span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text"><strong>Hero sidebar "Editor's Choice" feature</strong></span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">Above-fold placement — first thing visitors see</span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">Cross-page inclusion (up to 2 related pages)</span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">Custom editorial description (written by our team)</span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">Weekly performance dashboard</span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">Priority response & dedicated account contact</span></div>
+          <div class="feature-item"><div class="feature-check">✓</div><span class="feature-text">Quarterly content review & refresh</span></div>
+        </div>
+        <a href="#contact" class="plan-cta plan-cta-secondary">Get Started →</a>
+      </div>
+
+    </div>
+
+    <!-- ENTERPRISE -->
+    <div class="enterprise-card">
+      <div>
+        <div class="enterprise-label">Enterprise · iGaming Operators</div>
+        <div class="enterprise-title">Custom iGaming Partnership</div>
+        <p class="enterprise-desc">For AGCO-licensed casino and sportsbook operators requiring custom affiliate agreements, compliance-reviewed content, revenue-share structures, or white-label arrangements. We work with your compliance team to ensure all content meets AGCO Registrar's Standards — no bonus promotion, no prohibited inducement language. Pricing from $2,500/month or revenue-share basis.</p>
+      </div>
+      <div class="enterprise-actions">
+        <a href="#contact" class="enterprise-btn ebtn-primary">Discuss Partnership →</a>
+        <a href="mailto:partnerships@ontariosbest.com" class="enterprise-btn ebtn-secondary">Email Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- WHAT YOU GET -->
+<section class="placement-section">
+  <div class="placement-inner">
+    <div class="section-label">What's Included</div>
+    <h2>What a Sponsored<br><em>Placement Looks Like</em></h2>
+
+    <div class="placement-grid">
+
+      <!-- MOCK CARD -->
+      <div>
+        <p style="font-size:0.78rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-4); margin-bottom:14px">Live example — Featured tier</p>
+        <div class="mock-card">
+          <div class="mock-sponsored-badge">Featured · Sponsored</div>
+          <div class="mock-header">
+            <div class="mock-logo">YOUR<br>LOGO</div>
+            <div class="mock-title-area">
+              <div class="mock-name">Your Business Name</div>
+              <div class="mock-sub">Your category · Your city, Ontario</div>
+            </div>
+            <div>
+              <div class="mock-rating">★★★★★</div>
+              <span class="mock-score">9.4</span>
+            </div>
+          </div>
+          <div class="mock-body">
+            <p class="mock-desc">Your custom description appears here — written by you or by our editorial team on Premier plans. Up to 120 words, focused on your strongest differentiators for an Ontario audience actively making a decision.</p>
+            <div class="mock-tags">
+              <span class="mock-tag">Your Key Feature</span>
+              <span class="mock-tag">Differentiator</span>
+              <span class="mock-tag">Location</span>
+              <span class="mock-tag">Your USP</span>
+            </div>
+          </div>
+          <div class="mock-footer">
+            <span class="mock-license"><span class="mock-license-dot"></span> Your certification / licence info</span>
+            <span class="mock-btn">Visit Site →</span>
+          </div>
+        </div>
+        <p style="font-size:0.75rem; color:var(--ink-4); margin-top:12px; text-align:center">Actual placement styling matches the page it appears on</p>
+      </div>
+
+      <!-- GETS LIST -->
+      <div class="gets-list">
+        <div class="get-item">
+          <div class="get-num">01</div>
+          <div>
+            <div class="get-title">We Write the Listing (Premier)</div>
+            <p class="get-desc">On Premier plans, our editorial team writes your description — matching the tone and style of the surrounding content so your placement integrates naturally. On other tiers, you supply copy and we format it.</p>
+          </div>
+        </div>
+        <div class="get-item">
+          <div class="get-num">02</div>
+          <div>
+            <div class="get-title">Your Link, Your Tracking</div>
+            <p class="get-desc">We point directly to your URL — including affiliate or tracking links if you have them. Dofollow links on all tiers. If you're an affiliate program, we can set up direct revenue-share linking instead of flat-rate.</p>
+          </div>
+        </div>
+        <div class="get-item">
+          <div class="get-num">03</div>
+          <div>
+            <div class="get-title">Clear "Sponsored" Disclosure</div>
+            <p class="get-desc">All placements carry a "Sponsored" badge. This is non-negotiable — it protects our editorial credibility and your placement's trust with readers. Google also requires this disclosure, and we comply fully.</p>
+          </div>
+        </div>
+        <div class="get-item">
+          <div class="get-num">04</div>
+          <div>
+            <div class="get-title">Monthly Reporting (Featured & Premier)</div>
+            <p class="get-desc">You'll receive click and impression data for your placement each month. Premier clients get weekly dashboard access. We don't inflate numbers — honest data lets you make honest decisions about renewal.</p>
+          </div>
+        </div>
+        <div class="get-item">
+          <div class="get-num">05</div>
+          <div>
+            <div class="get-title">iGaming Compliance Included</div>
+            <p class="get-desc">For iGaming operators — all placements are reviewed against AGCO Registrar's Standards before going live. No bonus language, no prohibited inducement copy. Your compliance team can review before publication.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div style="text-align:center; margin-bottom:44px">
+      <div class="section-label">FAQ</div>
+      <h2>Common <em>Questions</em></h2>
+    </div>
+
+    <div class="faq-item open">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Who can advertise on Ontario's Best?
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-a">Any legitimate Ontario-based business or operator serving Ontario customers. For iGaming categories (casinos, sports betting, poker), you must hold a valid AGCO licence and be registered with iGaming Ontario. We verify this before any placement goes live. For tourism categories (hotels, attractions), there's no regulatory requirement — just a quality bar. We don't accept adult content, unregulated gambling operators, or businesses with unresolved consumer complaints.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        How long does it take to go live?
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-a">Typically 3–5 business days from payment confirmation. We need your logo, description copy (unless you're on Premier, where we write it), and your destination URL. iGaming placements take a couple of extra days for compliance review. We'll send you a preview link before publishing so you can approve the placement before it goes live.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Can I cancel?
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-a">Yes. All packages are month-to-month with 30 days' written notice required to cancel. If you cancel mid-month, your placement stays live for the remainder of the paid period. We don't offer partial refunds on monthly fees, but we don't lock you into long contracts either. Some advertisers choose to prepay quarterly or annually for a discounted rate — ask us about this when you enquire.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Can I advertise bonuses or promotional offers?
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-a">No — and this applies across all iGaming placements. Ontario's AGCO regulations prohibit advertising bonuses, free spins, promotional credits, or any inducement in public-facing affiliate content. This is not our rule — it's a legal requirement. Your listing focuses on platform quality, game selection, trust signals, and user experience. If you want to communicate offers to existing registered players, that's handled through your own platform's CRM, not through us.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Is there a revenue-share option instead of flat monthly?
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-a">Yes, for iGaming operators. We can structure CPA (cost-per-acquisition) or revenue-share agreements where we earn a commission on conversions we drive rather than charging a flat monthly rate. This works well for operators with strong conversion rates and clear tracking infrastructure. We discuss this as part of the Custom iGaming Partnership package. Contact us to explore what structure makes sense for your situation.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        How many sponsored slots are available per category?
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-a">We cap sponsored placements per page to maintain editorial integrity and ensure each advertiser gets meaningful exposure. Generally 2–4 slots per category page, depending on the page. The slot count shown on this page is updated in real time as spaces fill. If your preferred category is full, we'll add you to a waitlist and contact you when a slot opens — typically within 1–3 months as contracts roll over.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="section-label">Get In Touch</div>
+      <h2>Ready to Get<br><em>Featured?</em></h2>
+      <p class="contact-sub">Tell us about your business and which category you're interested in. We'll confirm availability and send you next steps within one business day.</p>
+
+      <div class="contact-promise">
+        <div class="promise-item">
+          <div class="promise-icon">⚡</div>
+          Response within 1 business day — guaranteed
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">👀</div>
+          Preview your listing before it goes live
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">🔒</div>
+          iGaming operators — AGCO compliance review included
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">📊</div>
+          No minimum commitment — monthly contracts
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">💬</div>
+          Revenue-share options available for iGaming operators
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form" id="enquiry-form">
+      <div class="form-title">Send an Enquiry</div>
+      <p class="form-subtitle">We'll confirm availability and pricing within 24 hours.</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name *</label>
+          <input type="text" class="form-input" placeholder="Jane">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name *</label>
+          <input type="text" class="form-input" placeholder="Smith">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Business Name *</label>
+        <input type="text" class="form-input" placeholder="Your Company or Brand">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Business Email *</label>
+        <input type="email" class="form-input" placeholder="you@yourbusiness.com">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Category Interested In *</label>
+          <select class="form-select">
+            <option value="" disabled selected>Select a category</option>
+            <option>Online Casinos (iGaming)</option>
+            <option>Sports Betting</option>
+            <option>Online Poker</option>
+            <option>Hotels & Accommodation</option>
+            <option>Things To Do / Attractions</option>
+            <option>Toronto City Guide</option>
+            <option>Multiple / Custom</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Package Interest</label>
+          <select class="form-select">
+            <option value="" disabled selected>Select a package</option>
+            <option>Starter — $299/mo</option>
+            <option>Featured — $699/mo</option>
+            <option>Premier — $1,499/mo</option>
+            <option>Custom / Enterprise</option>
+            <option>Not sure — advise me</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Tell us about your business</label>
+        <textarea class="form-textarea" placeholder="Brief description of your business, your target customer, and any specific goals for the placement..."></textarea>
+      </div>
+
+      <div class="form-footer">
+        <p class="form-disclaimer">By submitting you agree we may contact you about placement availability. No spam — ever.</p>
+        <button class="form-submit" onclick="handleSubmit(event)">Send Enquiry →</button>
+      </div>
+
+      <div class="form-success" id="form-success">
+        <span class="success-icon">✅</span>
+        <div class="success-title">Enquiry Received</div>
+        <p class="success-sub">We'll review your details and get back to you within one business day. Check your inbox — and your spam folder just in case.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">Ontario's Best</a>
+    <div class="footer-links">
+      <a href="/online-casinos/">Online Casinos</a>
+      <a href="/sports-betting/">Sports Betting</a>
+      <a href="/hotels/">Hotels</a>
+      <a href="/things-to-do/toronto/">Things To Do</a>
+      <a href="/responsible-gambling/">Responsible Gambling</a>
+      <a href="mailto:partnerships@ontariosbest.com">partnerships@ontariosbest.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle('open');
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    // In production, wire this to your form backend / Formspree / Netlify Forms
+    const form = document.getElementById('enquiry-form');
+    const success = document.getElementById('form-success');
+
+    // Basic validation
+    const inputs = form.querySelectorAll('input[type="text"], input[type="email"]');
+    let valid = true;
+    inputs.forEach(i => { if (!i.value.trim()) valid = false; });
+
+    if (!valid) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    // Show success
+    form.querySelector('.form-title').style.display = 'none';
+    form.querySelector('.form-subtitle').style.display = 'none';
+    form.querySelectorAll('.form-row, .form-group, .form-footer').forEach(el => el.style.display = 'none');
+    success.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

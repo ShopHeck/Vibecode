@@ -1,0 +1,77 @@
+<h2>Mobile Navigation Style</h2>
+<p class="subtitle">The hamburger toggle exists but the menu drawer has no animation or defined style. Pick the interaction pattern.</p>
+
+<div class="cards">
+
+  <!-- Option A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="card-body">
+      <h3>Slide-down dropdown</h3>
+      <p>Menu slides down from the header, pushing page content down. Simple, no overlay. Fast to implement.</p>
+      <div style="background:#1a1a2e;border-radius:8px;overflow:hidden;margin-top:10px;font-size:11px;">
+        <div style="background:#16213e;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="color:#e8a020;font-weight:700;font-size:13px;">OntariosBest</span>
+          <span style="color:#fff;font-size:16px;cursor:pointer;">☰</span>
+        </div>
+        <div style="background:#0d1b2a;border-top:2px solid #e8a020;">
+          <div style="padding:10px 12px;border-bottom:1px solid #1a2a3a;color:#fff;">Casinos</div>
+          <div style="padding:10px 12px;border-bottom:1px solid #1a2a3a;color:#fff;">Best of Ontario</div>
+          <div style="padding:10px 12px;border-bottom:1px solid #1a2a3a;color:#fff;">Compare</div>
+          <div style="padding:10px 12px;border-bottom:1px solid #1a2a3a;color:#fff;">Travel</div>
+          <div style="padding:10px 12px;color:#e8a020;font-weight:700;">Play Responsibly ↗</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="card-body">
+      <h3>Full-screen overlay drawer</h3>
+      <p>Tapping ☰ opens a full-screen dark overlay with large tap-friendly links. Feels premium. Closes with ✕ or tap outside.</p>
+      <div style="background:#1a1a2e;border-radius:8px;overflow:hidden;margin-top:10px;font-size:11px;position:relative;">
+        <div style="background:#16213e;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="color:#e8a020;font-weight:700;font-size:13px;">OntariosBest</span>
+          <span style="color:#fff;font-size:16px;">✕</span>
+        </div>
+        <div style="background:rgba(10,10,20,0.97);padding:20px 16px;">
+          <div style="color:#fff;font-size:16px;font-weight:700;padding:12px 0;border-bottom:1px solid #222;">🎰 Casinos</div>
+          <div style="color:#fff;font-size:16px;font-weight:700;padding:12px 0;border-bottom:1px solid #222;">🏆 Best of Ontario</div>
+          <div style="color:#fff;font-size:16px;font-weight:700;padding:12px 0;border-bottom:1px solid #222;">⚖️ Compare</div>
+          <div style="color:#fff;font-size:16px;font-weight:700;padding:12px 0;border-bottom:1px solid #222;">✈️ Travel</div>
+          <div style="color:#e8a020;font-size:14px;padding:12px 0;">19+ | Play Responsibly</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option C -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="card-body">
+      <h3>Slide-in side drawer (right)</h3>
+      <p>Menu slides in from the right edge over a dimmed overlay. Standard mobile UX pattern. Page content stays visible behind it.</p>
+      <div style="background:#1a1a2e;border-radius:8px;overflow:hidden;margin-top:10px;font-size:11px;position:relative;">
+        <div style="background:#16213e;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="color:#e8a020;font-weight:700;font-size:13px;">OntariosBest</span>
+          <span style="color:#fff;font-size:16px;">☰</span>
+        </div>
+        <div style="display:flex;">
+          <div style="background:rgba(0,0,0,0.5);flex:1;padding:20px;min-height:120px;">
+            <div style="color:#aaa;font-size:10px;">← page content dimmed</div>
+          </div>
+          <div style="background:#0d1b2a;width:65%;padding:12px;border-left:2px solid #e8a020;">
+            <div style="color:#fff;font-size:12px;font-weight:700;padding:8px 0;border-bottom:1px solid #1a2a3a;">Casinos</div>
+            <div style="color:#fff;font-size:12px;font-weight:700;padding:8px 0;border-bottom:1px solid #1a2a3a;">Best of Ontario</div>
+            <div style="color:#fff;font-size:12px;font-weight:700;padding:8px 0;border-bottom:1px solid #1a2a3a;">Compare</div>
+            <div style="color:#fff;font-size:12px;font-weight:700;padding:8px 0;border-bottom:1px solid #1a2a3a;">Travel</div>
+            <div style="color:#e8a020;font-size:11px;padding:8px 0;">Play Responsibly</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

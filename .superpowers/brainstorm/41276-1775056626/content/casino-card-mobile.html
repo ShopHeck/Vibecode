@@ -1,0 +1,79 @@
+<h2>Casino Card — Mobile Layout</h2>
+<p class="subtitle">How should the casino ranking card look on phones (375px)? Pick the layout that feels most natural for a user deciding where to play.</p>
+
+<div class="cards">
+
+  <!-- Option A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="card-body">
+      <h3>Compact Row — Logo + Info + CTA</h3>
+      <p>Stays horizontal but tightens up: smaller logo (60px), rank badge moves inline, CTA button full-width below the row</p>
+      <div style="background:#1a1a2e;border-radius:8px;padding:10px;margin-top:10px;font-size:12px;color:#fff;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <span style="background:#e8a020;color:#000;font-weight:700;border-radius:4px;padding:2px 6px;font-size:11px;">#1</span>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='32' viewBox='0 0 56 32'%3E%3Crect width='56' height='32' rx='4' fill='%23e8a020'/%3E%3Ctext x='28' y='21' text-anchor='middle' fill='%23000' font-size='10' font-family='sans-serif' font-weight='bold'%3EBetMGM%3C/text%3E%3C/svg%3E" style="width:56px;height:32px;" alt="logo">
+          <div style="flex:1">
+            <div style="font-weight:700;font-size:13px;">BetMGM Ontario</div>
+            <div style="color:#e8a020;font-size:11px;">★★★★★ 4.8 · $1,500 bonus</div>
+          </div>
+        </div>
+        <button style="width:100%;background:#e8a020;color:#000;border:none;border-radius:4px;padding:8px;font-weight:700;font-size:13px;cursor:pointer;">Play Now →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="card-body">
+      <h3>Stacked Card — Logo centred, full info block</h3>
+      <p>Logo centres at top, info stacks below, CTA button full-width at bottom. More visual breathing room.</p>
+      <div style="background:#1a1a2e;border-radius:8px;padding:12px;margin-top:10px;font-size:12px;color:#fff;text-align:center;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+          <span style="background:#e8a020;color:#000;font-weight:700;border-radius:4px;padding:2px 7px;font-size:12px;">#1</span>
+          <span style="background:#c0392b;color:#fff;border-radius:4px;padding:2px 6px;font-size:10px;">Editor's Choice</span>
+        </div>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='44' viewBox='0 0 80 44'%3E%3Crect width='80' height='44' rx='6' fill='%23e8a020'/%3E%3Ctext x='40' y='27' text-anchor='middle' fill='%23000' font-size='13' font-family='sans-serif' font-weight='bold'%3EBetMGM%3C/text%3E%3C/svg%3E" style="width:80px;height:44px;margin:0 auto 8px;" alt="logo">
+        <div style="font-weight:700;font-size:14px;margin-bottom:2px;">BetMGM Ontario</div>
+        <div style="color:#e8a020;font-size:12px;margin-bottom:4px;">★★★★★ 4.8/5</div>
+        <div style="color:#aaa;font-size:11px;margin-bottom:10px;">Bonus: Up to $1,500 · Min. deposit: $10</div>
+        <button style="width:100%;background:#e8a020;color:#000;border:none;border-radius:4px;padding:9px;font-weight:700;font-size:13px;cursor:pointer;">Claim Bonus →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option C -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="card-body">
+      <h3>Two-row split — Logo+rank left, score right, CTA full-width</h3>
+      <p>Rank + logo on left, score badge on right — feels like a leaderboard. CTA spans full width below.</p>
+      <div style="background:#1a1a2e;border-radius:8px;padding:12px;margin-top:10px;font-size:12px;color:#fff;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="background:#e8a020;color:#000;font-weight:700;border-radius:4px;padding:4px 8px;font-size:14px;">#1</span>
+            <div>
+              <div style="font-weight:700;font-size:13px;">BetMGM Ontario</div>
+              <div style="color:#aaa;font-size:10px;">$1,500 welcome bonus</div>
+            </div>
+          </div>
+          <div style="background:#16213e;border-radius:6px;padding:6px 10px;text-align:center;">
+            <div style="font-size:18px;font-weight:700;color:#e8a020;line-height:1;">4.8</div>
+            <div style="font-size:9px;color:#aaa;">/5.0</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:4px;margin-bottom:8px;">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='36' viewBox='0 0 64 36'%3E%3Crect width='64' height='36' rx='4' fill='%23e8a020'/%3E%3Ctext x='32' y='22' text-anchor='middle' fill='%23000' font-size='11' font-family='sans-serif' font-weight='bold'%3EBetMGM%3C/text%3E%3C/svg%3E" style="width:64px;height:36px;border-radius:4px;" alt="logo">
+          <div style="display:flex;flex-wrap:wrap;gap:3px;align-items:center;">
+            <span style="background:#16213e;border-radius:3px;padding:2px 5px;font-size:9px;color:#ccc;">Slots</span>
+            <span style="background:#16213e;border-radius:3px;padding:2px 5px;font-size:9px;color:#ccc;">Live Casino</span>
+            <span style="background:#16213e;border-radius:3px;padding:2px 5px;font-size:9px;color:#ccc;">Sports</span>
+          </div>
+        </div>
+        <button style="width:100%;background:#e8a020;color:#000;border:none;border-radius:4px;padding:9px;font-weight:700;font-size:13px;cursor:pointer;">Play Now →</button>
+      </div>
+    </div>
+  </div>
+
+</div>

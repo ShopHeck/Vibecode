@@ -218,23 +218,22 @@ $cons           = ob_casino_meta( '_casino_cons' );
     Play Now →
   </a>
 </div>
-<?php endif; ?>
-
-<?php
-endwhile;
-?>
-
 <script>
 (function() {
   var bar    = document.getElementById('ob-sticky-cta');
-  var footer = document.querySelector('footer');
-  if (!bar || !footer) return;
+  var footer = document.querySelector('#ob-footer');
+  if (!bar || !footer || !('IntersectionObserver' in window)) return;
   var io = new IntersectionObserver(function(entries) {
     bar.classList.toggle('is-hidden', entries[0].isIntersecting);
   }, { rootMargin: '0px 0px -80px 0px' });
   io.observe(footer);
 })();
 </script>
+<?php endif; ?>
+
+<?php
+endwhile;
+?>
 
 <?php
 get_footer();
