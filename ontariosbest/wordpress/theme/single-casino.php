@@ -145,6 +145,88 @@ $cons           = ob_casino_meta( '_casino_cons' );
 					</tbody>
 				</table>
 
+			<?php
+			$compare_with = ob_casino_meta( '_casino_compare_with' );
+			if ( $compare_with ) :
+				$compare_slugs = array_filter( array_map( 'trim', explode( ',', $compare_with ) ) );
+				$compare_links = array();
+				foreach ( $compare_slugs as $slug ) {
+					$compare_post = get_page_by_path( $slug, OBJECT, 'casino' );
+					if ( $compare_post ) {
+						$compare_links[] = '<a href="' . esc_url( get_permalink( $compare_post ) ) . '" class="ob-compare-link">'
+							. esc_html( $compare_post->post_title ) . '</a>';
+					}
+				}
+				if ( $compare_links ) :
+			?>
+			<div class="ob-compare-cta">
+				<span class="ob-compare-cta__label">Compare:</span>
+				<?php echo implode( ' <span class="ob-compare-cta__sep">vs</span> ', $compare_links ); ?>
+				<a href="<?php echo esc_url( home_url( '/casinos/compare/?a=' . get_post_field( 'post_name' ) . '&b=' . $compare_slugs[0] ) ); ?>"
+				   class="ob-compare-cta__btn">
+					Full Comparison →
+				</a>
+			</div>
+			<?php
+				endif;
+			endif;
+			?>
+
+			<?php
+			$faq_raw = ob_casino_meta( '_casino_faq' );
+			$faq_items = $faq_raw ? json_decode( $faq_raw, true ) : array();
+			if ( is_array( $faq_items ) && count( $faq_items ) > 0 ) :
+			?>
+			<div class="ob-faq" itemscope itemtype="https://schema.org/FAQPage">
+				<h2 class="ob-faq__heading">Frequently Asked Questions</h2>
+				<?php foreach ( $faq_items as $i => $item ) :
+					if ( empty( $item['q'] ) || empty( $item['a'] ) ) continue;
+					$item_id = 'faq-' . get_the_ID() . '-' . $i;
+				?>
+				<div class="ob-faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<button class="ob-faq__question" aria-expanded="false" aria-controls="<?php echo esc_attr( $item_id ); ?>">
+						<span itemprop="name"><?php echo esc_html( $item['q'] ); ?></span>
+						<span class="ob-faq__icon" aria-hidden="true">+</span>
+					</button>
+					<div class="ob-faq__answer" id="<?php echo esc_attr( $item_id ); ?>" hidden
+					     itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<div itemprop="text"><?php echo wp_kses_post( $item['a'] ); ?></div>
+					</div>
+				</div>
+				<?php endforeach; ?>
+			</div>
+			<script>
+			(function(){
+				document.querySelectorAll('.ob-faq__question').forEach(function(btn){
+					btn.addEventListener('click', function(){
+						var expanded = this.getAttribute('aria-expanded') === 'true';
+						var panel = document.getElementById(this.getAttribute('aria-controls'));
+						this.setAttribute('aria-expanded', !expanded);
+						this.querySelector('.ob-faq__icon').textContent = expanded ? '+' : '−';
+						if(expanded){ panel.setAttribute('hidden',''); }
+						else { panel.removeAttribute('hidden'); }
+					});
+				});
+			})();
+			</script>
+			<?php endif; ?>
+
+			<?php if ( $aff_link ) : ?>
+			<div class="ob-verdict-cta">
+				<h3 class="ob-verdict-cta__heading">Ready to play at <?php the_title(); ?>?</h3>
+				<?php if ( $bonus ) : ?>
+					<p class="ob-verdict-cta__bonus"><?php echo esc_html( $bonus ); ?></p>
+				<?php endif; ?>
+				<a href="<?php echo esc_url( $aff_link ); ?>"
+				   class="ob-btn ob-btn--lg"
+				   rel="nofollow noopener sponsored"
+				   target="_blank">
+					Claim Your Bonus →
+				</a>
+				<p class="ob-verdict-cta__legal">19+ | Terms apply | <a href="/responsible-gambling/">Play Responsibly</a></p>
+			</div>
+			<?php endif; ?>
+
 			</article>
 
 			<!-- Sidebar Score Box -->
