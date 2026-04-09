@@ -584,10 +584,109 @@
   @media (max-width: 900px) {
     .main { grid-template-columns: 1fr; }
     .sidebar { position: static; order: -1; }
-    nav { display: none; }
+    .header-inner > nav { display: none; }
     .room-meta { grid-template-columns: 1fr 1fr; }
     .games-grid { grid-template-columns: repeat(2, 1fr); }
     .criteria-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── MOBILE HAMBURGER ── */
+  .mob-burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .mob-burger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.25s, opacity 0.2s, width 0.2s;
+  }
+  .mob-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .mob-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; width: 0; }
+  .mob-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── MOBILE DRAWER ── */
+  .mob-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1002;
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .mob-backdrop.active { display: block; opacity: 1; }
+
+  .mob-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(300px, 85vw);
+    height: 100%;
+    background: var(--bg2);
+    border-left: 1px solid var(--border-soft);
+    z-index: 1003;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0 32px;
+    overflow-y: auto;
+  }
+  .mob-drawer.active { transform: translateX(0); }
+
+  .mob-drawer-close {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px 20px;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+  .mob-drawer-close:hover { color: var(--text); }
+
+  .mob-drawer a {
+    display: block;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-bottom: 1px solid var(--border-soft);
+    transition: color 0.2s, background 0.2s;
+  }
+  .mob-drawer a:last-of-type { border-bottom: none; }
+  .mob-drawer a:hover,
+  .mob-drawer a.active { color: var(--accent); background: var(--accent-dim); }
+
+  @media (max-width: 900px) {
+    .mob-burger { display: flex; }
+  }
+
+  /* ── SMALL PHONE ── */
+  @media (max-width: 480px) {
+    .header-inner { padding: 0 16px; }
+    .room-meta { grid-template-columns: 1fr; }
+    .games-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; gap: 12px; }
   }
 </style>
 </head>
@@ -603,8 +702,21 @@
       <a href="/prediction-markets/">Prediction Markets</a>
       <a href="/responsible-gambling/">Responsible Gambling</a>
     </nav>
+    <button class="mob-burger" id="mob-burger" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<div class="mob-backdrop" id="mob-backdrop"></div>
+<nav class="mob-drawer" id="mob-drawer" aria-hidden="true">
+  <button class="mob-drawer-close" id="mob-drawer-close" aria-label="Close navigation">&#x2715;</button>
+  <a href="/online-casinos/">Casinos</a>
+  <a href="/sports-betting/">Sports Betting</a>
+  <a href="/poker/" class="active">Poker</a>
+  <a href="/prediction-markets/">Prediction Markets</a>
+  <a href="/responsible-gambling/">Responsible Gambling</a>
+</nav>
 
 <section class="hero">
   <div class="hero-content">
@@ -1017,6 +1129,28 @@
   </div>
 </footer>
 
+<script>
+(function() {
+  var burger   = document.getElementById('mob-burger');
+  var drawer   = document.getElementById('mob-drawer');
+  var backdrop = document.getElementById('mob-backdrop');
+  var closeBtn = document.getElementById('mob-drawer-close');
+  function openNav() {
+    drawer.classList.add('active'); backdrop.classList.add('active');
+    burger.setAttribute('aria-expanded','true'); drawer.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNav() {
+    drawer.classList.remove('active'); backdrop.classList.remove('active');
+    burger.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+  burger.addEventListener('click', function() { drawer.classList.contains('active') ? closeNav() : openNav(); });
+  closeBtn.addEventListener('click', closeNav);
+  backdrop.addEventListener('click', closeNav);
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && drawer.classList.contains('active')) closeNav(); });
+})();
+</script>
 <script>
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 </script>
